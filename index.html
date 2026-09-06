@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>啟揚機電｜電梯不好裝，啟揚就來裝</title>
+  <meta name="description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。高雄。電話 07-353-8504。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#c41a2b" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f3eee4;
+      --bg-ink: #141414;
+      --fg: #141414;
+      --muted: #3d3830;
+      --seal: #c41a2b;
+      --seal-hover: #a61624;
+      --paper: #f7f3ea;
+      --line: rgba(20, 20, 20, 0.28);
+      --display: "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      background-image: radial-gradient(rgba(20,20,20,.06) 0.6px, transparent 0.6px);
+      background-size: 3px 3px;
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 1.125rem;
+      line-height: 1.75;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--line);
+    }
+    header img { height: 36px; width: auto; }
+    nav { display: flex; gap: 1.1rem; font-size: 1rem; }
+    nav a { text-decoration: none; letter-spacing: .04em; }
+    nav a:hover { color: var(--seal); }
+    .display { font-family: var(--display); font-weight: 700; letter-spacing: .02em; line-height: 1.2; }
+    .kicker { font-size: .9375rem; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
+    .hengpi { font-family: var(--display); font-weight: 700; letter-spacing: .08em; font-size: clamp(1.35rem, 5.2vw, 1.9rem); color: var(--seal); }
+    .chop {
+      display: inline-flex; align-items: center; border: 1.5px solid var(--seal);
+      color: var(--seal); padding: .15rem .4rem; font-family: var(--display);
+      font-size: .72rem; letter-spacing: .14em; line-height: 1;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 3rem; padding: .75rem 1.25rem; border-radius: 2px;
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: .06em;
+      text-decoration: none; border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--seal); color: var(--paper); border-color: var(--seal); }
+    .btn-primary:hover { background: var(--seal-hover); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+    .btn-ghost:hover { background: var(--paper); }
+    .btn-on-ink { background: var(--bg); color: var(--fg); }
+    .hero { display: grid; gap: 2.2rem; padding: 2.4rem 0 2.8rem; border-bottom: 1px solid var(--line); }
+    @media (min-width: 900px) { .hero { grid-template-columns: auto 1fr; align-items: end; } }
+    .couplet { display: flex; flex-direction: row-reverse; align-items: stretch; gap: 1.1rem; height: 19rem; }
+    .couplet-col { writing-mode: vertical-rl; font-family: var(--display); font-weight: 700; font-size: 2.4rem; line-height: 1.12; letter-spacing: .12em; margin: 0; }
+    .couplet-rule { width: 2px; background: var(--seal); flex: 0 0 2px; }
+    @media (min-width: 768px) {
+      .couplet { height: min(68vh, 32rem); }
+      .couplet-col { font-size: clamp(2.15rem, 6.4vw, 4.35rem); letter-spacing: .22em; }
+    }
+    .crop { position: relative; }
+    .crop-mark { position: absolute; width: 16px; height: 16px; border-color: var(--seal); border-style: solid; pointer-events: none; z-index: 2; }
+    .tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+    .tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
+    .bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; }
+    .br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+    .hero img { width: 100%; height: min(78vh, 640px); object-fit: cover; }
+    .caption { display: flex; justify-content: space-between; gap: .75rem; padding: .75rem 0; color: var(--muted); font-size: 1rem; }
+    section { padding: 3.4rem 0; }
+    .split { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .ink { background: var(--bg-ink); color: var(--paper); }
+    .ink .shell { display: grid; gap: 2rem; align-items: end; }
+    @media (min-width: 900px) { .ink .shell { grid-template-columns: 1fr auto; } }
+    .ink img { width: 100%; height: min(64vh, 520px); object-fit: cover; }
+    .ink .couplet-col { color: var(--paper); }
+    .film { display: flex; gap: .6rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 1rem 0.5rem; }
+    .film article { flex: 0 0 auto; scroll-snap-align: start; width: min(72vw, 320px); }
+    .film img { width: 100%; height: min(58vh, 420px); object-fit: cover; }
+    .film p { display: flex; justify-content: space-between; gap: .5rem; margin: .7rem 0 0; font-size: 1rem; }
+    ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    ol li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+    ol li:last-child { border-bottom: 0; }
+    .n { font-family: var(--display); font-size: 1.25rem; color: var(--seal); }
+    .seal-band { background: var(--seal); color: var(--paper); }
+    .seal-band a { color: var(--paper); text-decoration: none; }
+    .phone { font-family: var(--display); font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: .06em; margin: 1.4rem 0 0; }
+    .people { display: grid; gap: 1.2rem; }
+    @media (min-width: 700px) { .people { grid-template-columns: 180px 1fr; align-items: center; } }
+    .people img { width: 180px; height: 220px; object-fit: cover; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 6.5rem; font-size: 1rem; color: var(--muted); }
+    footer strong { color: var(--fg); font-weight: 700; }
+    .dock {
+      position: fixed; right: 0; bottom: 0; left: 0; z-index: 40;
+      display: grid; grid-template-columns: 1fr 1.25fr;
+      gap: .4rem; padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom));
+      background: var(--bg-ink);
+    }
+    .dock a {
+      display: flex; min-height: 3.15rem; align-items: center; justify-content: center;
+      border-radius: 2px; background: var(--bg); color: var(--fg);
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+    }
+    .dock .go { background: var(--seal); color: var(--paper); }
+    @media (min-width: 768px) {
+      .dock { display: none; }
+      footer { padding-bottom: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <a href="./"><img src="images/chiyang-logo-lockup.png" alt="啟揚機電" /></a>
+    <nav>
+      <a href="#story">為什麼找啟揚</a>
+      <a href="#cases">工程現場</a>
+      <a href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div>
+        <p class="hengpi">舊透天加梯</p>
+        <div class="couplet" aria-label="電梯不好裝，啟揚就來裝。">
+          <p class="couplet-col">電梯不好裝</p>
+          <span class="couplet-rule" aria-hidden="true"></span>
+          <p class="couplet-col">啟揚就來裝</p>
+        </div>
+        <p style="margin:2rem 0 0; max-width:22rem; color:var(--muted);">空間窄、別家不接、地板不能大挖。先看這個家怎麼住，再談電梯怎麼放。</p>
+        <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:.7rem;">
+          <a class="btn btn-primary" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+          <a class="btn btn-ghost" href="#cases">看現場</a>
+        </div>
+        <p style="margin:1.4rem 0 0;">
+          <span style="color:var(--muted);">來電　</span>
+          <a href="tel:+88673538504" style="text-decoration:none; letter-spacing:.06em;">07-353-8504</a>
+        </p>
+      </div>
+      <div class="crop">
+        <span class="crop-mark tl"></span><span class="crop-mark tr"></span>
+        <span class="crop-mark bl"></span><span class="crop-mark br"></span>
+        <img src="images/qy-040-finished-qy-logo.webp" alt="樓梯旁加裝電梯的完成畫面" width="960" height="1280" />
+        <div class="caption"><span class="chop">QY-040</span><span>匿名工程 · 完成面</span></div>
+      </div>
+    </section>
+
+    <section class="shell" id="story">
+      <p class="kicker">為什麼找啟揚</p>
+      <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.4rem); margin:.7rem 0 0;">別家說裝不了的家，我們來看現場。</h2>
+      <p style="max-width:38rem; margin:1.1rem 0 0; font-size:1.15rem;">這不是樣品屋。是已經住進去的透天：樓梯窄、位置怪、地板不能大挖。先看這個家怎麼住，能裝才說怎麼裝。裝完，保養也找我們。</p>
+    </section>
+
+    <section class="ink">
+      <div class="shell">
+        <div class="crop">
+          <span class="crop-mark tl"></span><span class="crop-mark tr"></span>
+          <span class="crop-mark bl"></span><span class="crop-mark br"></span>
+          <img src="images/qy-040-progress-qy-logo.webp" alt="井道安裝中" width="1108" height="1477" />
+        </div>
+        <div>
+          <p class="hengpi">裝完也養</p>
+          <div class="couplet" aria-label="電梯不好養，啟揚就來養。">
+            <p class="couplet-col">電梯不好養</p>
+            <span class="couplet-rule" aria-hidden="true"></span>
+            <p class="couplet-col">啟揚就來養</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <p class="hengpi">地板不能挖，啟揚有辦法。</p>
+      <p style="max-width:34rem; margin:1rem 0 0; color:var(--muted);">怕動防水、怕挖太深、怕把家拆掉。深度與做法以現勘為準。不是每戶都能少動地板。</p>
+    </section>
+
+    <section id="cases">
+      <div class="shell" style="margin-bottom:1rem;">
+        <p class="kicker">工程現場</p>
+        <h2 class="display" style="font-size:2rem; margin:.6rem 0 0;">不是樣品屋</h2>
+      </div>
+      <div class="film">
+        <article>
+          <img src="images/qy-750.webp" alt="高雄三民家用梯" />
+          <p><span class="chop">QY-750</span><span>高雄三民｜家用梯</span></p>
+        </article>
+        <article>
+          <img src="images/qy-730.webp" alt="台南南區家用梯" />
+          <p><span class="chop">QY-730</span><span>台南南區｜家用梯</span></p>
+        </article>
+        <article>
+          <img src="images/qy-740.webp" alt="桃園龜山家用梯" />
+          <p><span class="chop">QY-740</span><span>桃園龜山｜家用梯</span></p>
+        </article>
+        <article>
+          <img src="images/qy-715.webp" alt="高雄梓官家用梯" />
+          <p><span class="chop">QY-715</span><span>高雄梓官｜家用梯</span></p>
+        </article>
+        <article>
+          <img src="images/qy-689.webp" alt="高雄鳳山客梯" />
+          <p><span class="chop">QY-689</span><span>高雄鳳山｜客梯</span></p>
+        </article>
+        <article>
+          <img src="images/qy-679.webp" alt="台南北區家用梯" />
+          <p><span class="chop">QY-679</span><span>台南北區｜家用梯</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div style="display:grid; gap:2rem;" class="how">
+        <div>
+          <p class="kicker">怎麼開始</p>
+          <h2 class="display" style="font-size:1.9rem; margin:.6rem 0 0;">四步，先說能不能裝</h2>
+        </div>
+        <ol>
+          <li><span class="n">01</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">拍照傳圖</h3><p style="margin:.3rem 0 0; color:var(--muted);">樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
+          <li><span class="n">02</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">說明能不能裝</h3><p style="margin:.3rem 0 0; color:var(--muted);">先講生活需求與現場限制，能做、不能做、下一步怎麼走。</p></div></li>
+          <li><span class="n">03</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">到府現勘</h3><p style="margin:.3rem 0 0; color:var(--muted);">結構、動線、出入口與施工界面，以現場為準。</p></div></li>
+          <li><span class="n">04</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">圖說與合約</h3><p style="margin:.3rem 0 0; color:var(--muted);">規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="shell">
+      <p class="kicker">關於啟揚</p>
+      <h2 class="display" style="font-size:1.9rem; margin:.6rem 0 1.4rem;">先會裝，才開了這家公司。</h2>
+      <div class="people">
+        <img src="images/hong-guofeng.webp" alt="創辦人洪國峰" width="360" height="440" />
+        <div>
+          <p class="chop">創辦人</p>
+          <h3 class="display" style="margin:.5rem 0 0; font-size:1.7rem;">洪國峰</h3>
+          <p style="margin:.7rem 0 0; max-width:34rem;">做電梯二十五年。前十五年在現場，後來開了啟揚。來看已經住進去的家。能裝才說怎麼裝。裝完也養。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seal-band">
+      <div class="shell" style="padding:3.4rem 0;">
+        <p class="kicker" style="color:rgba(247,243,234,.75);">下一步</p>
+        <h2 class="display" style="font-size:clamp(1.8rem,5vw,2.6rem); margin:.6rem 0 0;">想裝電梯，先問啟揚</h2>
+        <p style="max-width:34rem; margin:1rem 0 0; font-size:1.15rem;">留下房屋類型、樓層和照片。能裝、不能裝，我們講清楚。</p>
+        <p class="phone"><a href="tel:+88673538504">07-353-8504</a></p>
+        <a class="btn btn-on-ink" style="margin-top:1.5rem;" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <p><strong>啟揚機電有限公司</strong></p>
+    <p>高雄市大社區民族路15-10號</p>
+    <p>電話 <a href="tel:+88673538504" style="text-decoration:none;">07-353-8504</a>　免付費 0800-000-362</p>
+    <p>台南展銷中心　台南市永康區中山北路343號　06-231-3662</p>
+  </footer>
+
+  <nav class="dock" aria-label="手機快捷">
+    <a href="tel:+88673538504">打電話</a>
+    <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+  </nav>
+</body>
+</html>
