@@ -45,7 +45,7 @@
     .shell { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
     .site-header {
       position: sticky; top: 0; z-index: 50;
-      background: color-mix(in srgb, var(--bg) 94%, white);
+      background: var(--bg);
       border-bottom: 1px solid var(--line);
     }
     .bar {
@@ -53,15 +53,42 @@
       gap: 1rem; padding: 0.75rem 0;
     }
     .logo img { height: 40px; width: auto; }
-    .menu-btn {
-      display: none;
-      min-height: 2.75rem; padding: 0 0.95rem;
-      border: 1px solid var(--line); background: var(--bg);
-      font: inherit; font-size: 1rem; letter-spacing: .06em; cursor: pointer;
+    .nav-desktop { display: none; align-items: center; gap: 1.6rem; font-size: 1rem; }
+    .nav-desktop a, .menu-mobile nav a {
+      text-decoration: none; white-space: nowrap; letter-spacing: .04em; color: inherit;
     }
-    .nav { display: flex; align-items: center; gap: 1.6rem; font-size: 1rem; }
-    .nav a { text-decoration: none; white-space: nowrap; letter-spacing: .04em; }
-    .nav a:hover { color: var(--seal); }
+    .nav-desktop a:hover, .menu-mobile nav a:hover { color: var(--seal); }
+    .menu-mobile { display: block; position: static; }
+    .menu-mobile summary {
+      list-style: none;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; min-width: 72px; padding: 0 0.95rem;
+      border: 1px solid var(--line); background: var(--bg);
+      font: inherit; font-size: 1rem; letter-spacing: .06em;
+      cursor: pointer; -webkit-user-select: none; user-select: none;
+      touch-action: manipulation; -webkit-tap-highlight-color: rgba(196,26,43,.18);
+    }
+    .menu-mobile summary::-webkit-details-marker,
+    .menu-mobile summary::marker { display: none; content: ""; }
+    .menu-mobile nav {
+      display: none;
+      position: absolute; left: 0; right: 0; top: 100%;
+      z-index: 60;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 0.25rem 1rem 0.75rem;
+    }
+    .menu-mobile[open] nav { display: block; }
+    .menu-mobile nav a {
+      display: flex; align-items: center;
+      min-height: 48px;
+      border-bottom: 1px solid var(--line);
+    }
+    .menu-mobile nav a:last-child { border-bottom: 0; }
+    @media (min-width: 768px) {
+      .menu-mobile { display: none; }
+      .nav-desktop { display: flex; }
+    }
     .display { font-family: var(--display); font-weight: 700; letter-spacing: .02em; line-height: 1.2; }
     .kicker { font-size: .9375rem; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
     .hengpi { font-family: var(--display); font-weight: 700; letter-spacing: .08em; font-size: clamp(1.35rem, 5.2vw, 1.9rem); color: var(--seal); margin: 0; }
@@ -151,16 +178,7 @@
     }
     .dock .go { background: var(--seal); color: var(--paper); }
     @media (max-width: 767px) {
-      .menu-btn { display: inline-flex; align-items: center; }
-      .bar { flex-wrap: wrap; }
-      .nav {
-        display: none; flex-basis: 100%; flex-direction: column; align-items: stretch;
-        gap: 0; padding: .2rem 0 .8rem;
-      }
-      .nav.open { display: flex; }
-      .nav a {
-        border-bottom: 1px solid var(--line); padding: .9rem 0;
-      }
+      .bar { position: static; }
     }
     @media (min-width: 768px) {
       .dock { display: none; }
@@ -172,13 +190,21 @@
   <header class="site-header">
     <div class="shell bar">
       <a class="logo" href="./"><img src="images/chiyang-logo-lockup.png" alt="啟揚機電有限公司" width="180" height="50" /></a>
-      <button class="menu-btn" type="button" id="menu-btn" aria-controls="site-nav" aria-expanded="false">選單</button>
-      <nav class="nav" id="site-nav" aria-label="主要導覽">
+      <nav class="nav-desktop" aria-label="主要導覽">
         <a href="#story">為什麼找啟揚</a>
         <a href="#cases">工程現場</a>
         <a href="#about">關於啟揚</a>
         <a href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
       </nav>
+      <details class="menu-mobile">
+        <summary>選單</summary>
+        <nav aria-label="手機導覽">
+          <a href="#story">為什麼找啟揚</a>
+          <a href="#cases">工程現場</a>
+          <a href="#about">關於啟揚</a>
+          <a href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+        </nav>
+      </details>
     </div>
   </header>
 
@@ -323,25 +349,5 @@
     <a href="#cases">看現場</a>
     <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
   </nav>
-
-  <script>
-    (function () {
-      var btn = document.getElementById("menu-btn");
-      var nav = document.getElementById("site-nav");
-      if (!btn || !nav) return;
-      btn.addEventListener("click", function () {
-        var open = nav.classList.toggle("open");
-        btn.textContent = open ? "關閉" : "選單";
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-      nav.querySelectorAll("a").forEach(function (a) {
-        a.addEventListener("click", function () {
-          nav.classList.remove("open");
-          btn.textContent = "選單";
-          btn.setAttribute("aria-expanded", "false");
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
