@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <!-- menu-v5 floating nav -->
+  <!-- v6 no menu; in-page links only -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>啟揚機電｜電梯不好裝，啟揚就來裝</title>
   <meta name="description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。高雄。電話 07-353-8504。" />
@@ -54,57 +54,19 @@
       gap: 1rem; padding: 0.75rem 0;
     }
     .logo img { height: 40px; width: auto; }
-    .nav-desktop { display: none; align-items: center; gap: 1.4rem; font-size: 1rem; }
-    .nav-desktop a {
-      text-decoration: none; white-space: nowrap; letter-spacing: .04em; color: inherit;
-      word-break: keep-all;
+    .jump {
+      display: flex; flex-wrap: wrap; gap: .7rem;
+      margin-top: 1.1rem;
     }
-    .nav-desktop a:hover { color: var(--seal); }
-    .float-nav {
-      position: fixed;
-      left: 12px; right: 12px;
-      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-      z-index: 80;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 4px;
-      padding: 6px;
-      background: var(--bg-ink);
-      color: var(--paper);
-      border-radius: 12px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.32);
-    }
-    .float-nav a {
-      display: flex; align-items: center; justify-content: center;
-      min-height: 52px; padding: 6px 4px;
-      text-align: center; text-decoration: none; color: inherit;
-      font-size: .82rem; font-weight: 700; letter-spacing: .02em; line-height: 1.25;
-      word-break: keep-all; white-space: normal;
-      border-radius: 8px;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: rgba(247,243,234,.18);
-    }
-    .float-nav a.go { background: var(--seal); color: var(--paper); }
-    .fab-tel {
-      position: fixed;
-      right: 18px;
-      bottom: calc(82px + env(safe-area-inset-bottom, 0px));
-      z-index: 81;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--seal); color: var(--paper);
-      border-radius: 50%;
-      text-decoration: none; font-size: .82rem; font-weight: 700; letter-spacing: .04em;
-      box-shadow: 0 8px 20px rgba(196,26,43,.4);
+    .jump a {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 3rem; padding: .7rem 1.1rem;
+      border: 1px solid var(--line);
+      text-decoration: none; font-weight: 700; letter-spacing: .04em;
+      word-break: keep-all; white-space: nowrap;
       touch-action: manipulation;
     }
     #story, #cases, #about, #maintain { scroll-margin-top: 4.8rem; }
-    @media (min-width: 768px) {
-      .float-nav, .fab-tel { display: none; }
-      .nav-desktop { display: flex; }
-      #story, #cases, #about, #maintain { scroll-margin-top: 5.5rem; }
-    }
     .display { font-family: var(--display); font-weight: 700; letter-spacing: .02em; line-height: 1.2; }
     .kicker { font-size: .9375rem; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
     .hengpi { font-family: var(--display); font-weight: 700; letter-spacing: .08em; font-size: clamp(1.35rem, 5.2vw, 1.9rem); color: var(--seal); margin: 0; }
@@ -176,7 +138,7 @@
     .people { display: grid; gap: 1.2rem; }
     @media (min-width: 700px) { .people { grid-template-columns: 180px 1fr; align-items: center; } }
     .people img { width: 180px; height: 220px; object-fit: cover; }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0 8.2rem; font-size: 1rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 2.4rem; font-size: 1rem; color: var(--muted); }
     footer strong { color: var(--fg); font-weight: 700; }
     footer p { margin: 0 0 .55rem; }
     .tel { white-space: nowrap; }
@@ -189,12 +151,6 @@
   <header class="site-header">
     <div class="shell bar">
       <a class="logo" href="./"><img src="images/chiyang-logo-lockup.png" alt="啟揚機電有限公司" width="180" height="50" /></a>
-      <nav class="nav-desktop" aria-label="主要導覽">
-        <a href="#cases">看現場照片</a>
-        <a href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
-        <a href="#maintain">裝完誰來養</a>
-        <a href="#about">這家怎麼來的</a>
-      </nav>
     </div>
   </header>
 
@@ -216,9 +172,11 @@
       </div>
       <div class="hero-lead">
         <p style="margin:0; max-width:22rem; color:var(--muted);">空間窄、別家不接、地板不能大挖。先看這個家怎麼住，再談電梯怎麼放。</p>
-        <div style="margin-top:1.35rem; display:flex; flex-wrap:wrap; gap:.7rem;">
-          <a class="btn btn-primary" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
-          <a class="btn btn-ghost" href="#cases">看現場</a>
+        <div class="jump">
+          <a class="btn btn-primary" href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
+          <a class="btn btn-ghost" href="#cases">看現場照片</a>
+          <a href="#maintain">裝完誰來養</a>
+          <a href="#about">這家怎麼來的</a>
         </div>
         <p style="margin:1.25rem 0 0;">
           <span style="color:var(--muted);">來電　</span>
@@ -293,10 +251,10 @@
 
     <section class="shell split">
       <p class="kicker">怎麼開始</p>
-      <h2 class="display" style="font-size:1.9rem; margin:.6rem 0 1.2rem;">四步，先說能不能裝</h2>
+      <h2 class="display" style="font-size:1.9rem; margin:.6rem 0 1.2rem;">四步，先一起看能不能裝</h2>
       <ol>
         <li><span class="n">01</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">拍照傳圖</h3><p style="margin:.3rem 0 0; color:var(--muted);">樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
-        <li><span class="n">02</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">說明能不能裝</h3><p style="margin:.3rem 0 0; color:var(--muted);">先講生活需求與現場限制，能做、不能做、下一步怎麼走。</p></div></li>
+        <li><span class="n">02</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">一起看能不能裝</h3><p style="margin:.3rem 0 0; color:var(--muted);">先講生活需求與現場限制。能做、不能做、下一步怎麼走，我們一起討論。</p></div></li>
         <li><span class="n">03</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">到府現勘</h3><p style="margin:.3rem 0 0; color:var(--muted);">結構、動線、出入口與施工界面，以現場為準。</p></div></li>
         <li><span class="n">04</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">圖說與合約</h3><p style="margin:.3rem 0 0; color:var(--muted);">規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
       </ol>
@@ -319,9 +277,9 @@
       <div class="shell" style="padding:3.4rem 0;">
         <p class="kicker" style="color:rgba(247,243,234,.75);">下一步</p>
         <h2 class="display" style="font-size:clamp(1.8rem,5vw,2.6rem); margin:.6rem 0 0;">想裝電梯，先問啟揚</h2>
-        <p style="max-width:34rem; margin:1rem 0 0; font-size:1.15rem;">留下房屋類型、樓層和照片。能裝、不能裝，我們講清楚。</p>
+        <p style="max-width:34rem; margin:1rem 0 0; font-size:1.15rem;">留下房屋類型、樓層和照片。能不能裝，我們一起討論。</p>
         <p class="phone"><a href="tel:+88673538504">07-353-8504</a></p>
-        <a class="btn btn-on-ink" style="margin-top:1.5rem;" href="https://forms.gle/uCqMDaTfuiHCuHvw8">填需求表</a>
+        <a class="btn btn-on-ink" style="margin-top:1.5rem;" href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
       </div>
     </section>
   </main>
@@ -333,13 +291,5 @@
     <p>台南展銷中心</p>
     <p>台南市永康區中山北路343號　<span class="tel">06-231-3662</span></p>
   </footer>
-
-  <a class="fab-tel" href="tel:+88673538504">電話</a>
-  <nav class="float-nav" aria-label="懸浮導覽">
-    <a href="#cases">看現場照片</a>
-    <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
-    <a href="#maintain">裝完誰來養</a>
-    <a href="#about">這家怎麼來的</a>
-  </nav>
 </body>
 </html>
