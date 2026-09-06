@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <!-- menu-v4 tap-size + click-words -->
+  <!-- menu-v5 floating nav -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>啟揚機電｜電梯不好裝，啟揚就來裝</title>
   <meta name="description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。高雄。電話 07-353-8504。" />
@@ -55,30 +55,53 @@
     }
     .logo img { height: 40px; width: auto; }
     .nav-desktop { display: none; align-items: center; gap: 1.4rem; font-size: 1rem; }
-    .nav-desktop a, .nav-phone a {
+    .nav-desktop a {
       text-decoration: none; white-space: nowrap; letter-spacing: .04em; color: inherit;
       word-break: keep-all;
     }
-    .nav-desktop a:hover, .nav-phone a:hover { color: var(--seal); }
-    .nav-phone {
+    .nav-desktop a:hover { color: var(--seal); }
+    .float-nav {
+      position: fixed;
+      left: 12px; right: 12px;
+      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      z-index: 80;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      padding: 0.15rem 0.75rem 0.75rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 4px;
+      padding: 6px;
+      background: var(--bg-ink);
+      color: var(--paper);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.32);
     }
-    .nav-phone a {
+    .float-nav a {
       display: flex; align-items: center; justify-content: center;
-      min-height: 52px; padding: 0.7rem 0.4rem;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      font-size: 1.02rem; font-weight: 700;
+      min-height: 52px; padding: 6px 4px;
+      text-align: center; text-decoration: none; color: inherit;
+      font-size: .82rem; font-weight: 700; letter-spacing: .02em; line-height: 1.25;
+      word-break: keep-all; white-space: normal;
+      border-radius: 8px;
       cursor: pointer;
-      -webkit-tap-highlight-color: rgba(196,26,43,.22);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(247,243,234,.18);
+    }
+    .float-nav a.go { background: var(--seal); color: var(--paper); }
+    .fab-tel {
+      position: fixed;
+      right: 18px;
+      bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+      z-index: 81;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--seal); color: var(--paper);
+      border-radius: 50%;
+      text-decoration: none; font-size: .82rem; font-weight: 700; letter-spacing: .04em;
+      box-shadow: 0 8px 20px rgba(196,26,43,.4);
       touch-action: manipulation;
     }
-    #story, #cases, #about, #maintain { scroll-margin-top: 8.5rem; }
+    #story, #cases, #about, #maintain { scroll-margin-top: 4.8rem; }
     @media (min-width: 768px) {
-      .nav-phone { display: none; }
+      .float-nav, .fab-tel { display: none; }
       .nav-desktop { display: flex; }
       #story, #cases, #about, #maintain { scroll-margin-top: 5.5rem; }
     }
@@ -153,28 +176,11 @@
     .people { display: grid; gap: 1.2rem; }
     @media (min-width: 700px) { .people { grid-template-columns: 180px 1fr; align-items: center; } }
     .people img { width: 180px; height: 220px; object-fit: cover; }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0 7.2rem; font-size: 1rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 8.2rem; font-size: 1rem; color: var(--muted); }
     footer strong { color: var(--fg); font-weight: 700; }
     footer p { margin: 0 0 .55rem; }
     .tel { white-space: nowrap; }
-    .dock {
-      position: fixed; right: 0; bottom: 0; left: 0; z-index: 40;
-      display: grid; grid-template-columns: 1fr 1fr 1.25fr;
-      gap: .4rem; padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom));
-      background: var(--bg-ink);
-    }
-    .dock a {
-      display: flex; min-height: 3.15rem; align-items: center; justify-content: center;
-      border-radius: 2px; background: var(--bg); color: var(--fg);
-      font-size: 1.0625rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
-      white-space: nowrap;
-    }
-    .dock .go { background: var(--seal); color: var(--paper); }
-    @media (max-width: 767px) {
-      .bar { padding-bottom: 0.55rem; }
-    }
     @media (min-width: 768px) {
-      .dock { display: none; }
       footer { padding-bottom: 2.4rem; }
     }
   </style>
@@ -190,12 +196,6 @@
         <a href="#about">這家怎麼來的</a>
       </nav>
     </div>
-    <nav class="nav-phone" aria-label="手機導覽">
-      <a href="#cases">看現場照片</a>
-      <a href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
-      <a href="#maintain">裝完誰來養</a>
-      <a href="#about">這家怎麼來的</a>
-    </nav>
   </header>
 
   <main>
@@ -334,10 +334,12 @@
     <p>台南市永康區中山北路343號　<span class="tel">06-231-3662</span></p>
   </footer>
 
-  <nav class="dock" aria-label="手機快捷">
-    <a href="tel:+88673538504">打電話</a>
-    <a href="#cases">看現場</a>
-    <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">能不能裝</a>
+  <a class="fab-tel" href="tel:+88673538504">電話</a>
+  <nav class="float-nav" aria-label="懸浮導覽">
+    <a href="#cases">看現場照片</a>
+    <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
+    <a href="#maintain">裝完誰來養</a>
+    <a href="#about">這家怎麼來的</a>
   </nav>
 </body>
 </html>
