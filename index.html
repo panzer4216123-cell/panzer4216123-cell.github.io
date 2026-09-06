@@ -2,16 +2,13 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <!-- v7 one page; 看現場 in footer -->
+  <!-- v8 bottom dock only; system fonts -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>啟揚機電｜電梯不好裝，啟揚就來裝</title>
   <meta name="description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。高雄。電話 07-353-8504。" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#c41a2b" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f3eee4;
@@ -22,11 +19,11 @@
       --seal-hover: #a61624;
       --paper: #f7f3ea;
       --line: rgba(20, 20, 20, 0.28);
-      --display: "Noto Serif TC", "Songti TC", serif;
-      --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --display: "Songti TC", "PMingLiU", "Noto Serif TC", serif;
+      --sans: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
     body {
       margin: 0;
       background: var(--bg);
@@ -45,7 +42,6 @@
     }
     .shell { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
     .site-header {
-      position: sticky; top: 0; z-index: 50;
       background: var(--bg);
       border-bottom: 1px solid var(--line);
     }
@@ -138,7 +134,27 @@
     .people { display: grid; gap: 1.2rem; }
     @media (min-width: 700px) { .people { grid-template-columns: 180px 1fr; align-items: center; } }
     .people img { width: 180px; height: 220px; object-fit: cover; }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0 2.4rem; font-size: 1rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 7.2rem; font-size: 1rem; color: var(--muted); }
+    footer strong { color: var(--fg); font-weight: 700; }
+    footer p { margin: 0 0 .55rem; }
+    .tel { white-space: nowrap; }
+    .dock {
+      position: fixed; right: 0; bottom: 0; left: 0; z-index: 40;
+      display: grid; grid-template-columns: 1fr 1fr 1.25fr;
+      gap: .4rem; padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom, 0px));
+      background: var(--bg-ink);
+    }
+    .dock a {
+      display: flex; min-height: 3.15rem; align-items: center; justify-content: center;
+      border-radius: 2px; background: var(--bg); color: var(--fg);
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+      white-space: nowrap; touch-action: manipulation;
+    }
+    .dock .go { background: var(--seal); color: var(--paper); }
+    @media (min-width: 768px) {
+      .dock { display: none; }
+      footer { padding-bottom: 2.4rem; }
+    }
     footer strong { color: var(--fg); font-weight: 700; }
     footer p { margin: 0 0 .55rem; }
     .tel { white-space: nowrap; }
@@ -175,8 +191,6 @@
         <div class="jump">
           <a class="btn btn-primary" href="https://forms.gle/uCqMDaTfuiHCuHvw8">我家能不能裝</a>
           <a class="btn btn-ghost" href="#cases">看現場照片</a>
-          <a href="#maintain">裝完誰來養</a>
-          <a href="#about">這家怎麼來的</a>
         </div>
         <p style="margin:1.25rem 0 0;">
           <span style="color:var(--muted);">來電　</span>
@@ -296,5 +310,10 @@
     <p>台南展銷中心</p>
     <p>台南市永康區中山北路343號　<span class="tel">06-231-3662</span></p>
   </footer>
+  <nav class="dock" aria-label="手機快捷">
+    <a href="tel:+88673538504">打電話</a>
+    <a href="#cases">看現場</a>
+    <a class="go" href="https://forms.gle/uCqMDaTfuiHCuHvw8">能不能裝</a>
+  </nav>
 </body>
 </html>
