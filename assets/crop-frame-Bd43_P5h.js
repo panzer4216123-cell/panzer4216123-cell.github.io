@@ -1,0 +1,1 @@
+import{g as e}from"./index-Bp08mZOa.js";var t=e();function n({children:e}){return(0,t.jsxs)(`div`,{className:`crop`,children:[(0,t.jsx)(`span`,{className:`crop-mark crop-tl`}),(0,t.jsx)(`span`,{className:`crop-mark crop-tr`}),(0,t.jsx)(`span`,{className:`crop-mark crop-bl`}),(0,t.jsx)(`span`,{className:`crop-mark crop-br`}),e]})}export{n as t};
