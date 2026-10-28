@@ -161,6 +161,13 @@
     @media (min-width: 768px) {
       footer { padding-bottom: 2.4rem; }
     }
+    .proof { border-bottom: 1px solid var(--line); }
+    .proof .shell { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .proof-item { padding: 1.6rem 1rem 1.5rem 0; }
+    .proof-item + .proof-item { border-left: 1px solid var(--line); padding-left: 1.4rem; }
+    .proof-num { font-family: var(--display); font-weight: 700; color: var(--seal); font-size: clamp(2.6rem, 9vw, 4rem); line-height: 1; letter-spacing: .02em; }
+    .proof-num small { font-size: .38em; margin-left: .15em; color: var(--fg); letter-spacing: .1em; }
+    .proof-label { margin: .7rem 0 0; color: var(--muted); font-size: 1rem; letter-spacing: .08em; }
   </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-854591160"></script>
@@ -207,6 +214,19 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
           <span style="color:var(--muted);">來電　</span>
           <a class="tel" href="tel:+88673538504" style="text-decoration:none; letter-spacing:.06em;">07-353-8504</a>
         </p>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="啟揚的經驗與案量">
+      <div class="shell">
+        <div class="proof-item">
+          <p class="proof-num" style="margin:0;">25<small>年</small></p>
+          <p class="proof-label">創辦人投入電梯工程</p>
+        </div>
+        <div class="proof-item">
+          <p class="proof-num" style="margin:0;">上百<small>件</small></p>
+          <p class="proof-label">完成的電梯案場</p>
+        </div>
       </div>
     </section>
 
