@@ -2,177 +2,278 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <!-- v11 -->
+  <!-- v12 -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>啟揚機電｜電梯不好裝，啟揚就來裝</title>
   <meta name="description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。電梯不好裝，啟揚就來裝。電梯不好養，啟揚就來養。高雄。電話 07-353-8504。" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#c41a2b" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://chiyang9982.com.tw/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="啟揚機電" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="啟揚機電｜電梯不好裝，啟揚就來裝" />
+  <meta property="og:description" content="舊透天加梯。空間窄、別家不接、地板不能大挖。先看這個家怎麼住，再談電梯怎麼放。" />
+  <meta property="og:url" content="https://chiyang9982.com.tw/" />
+  <meta property="og:image" content="https://chiyang9982.com.tw/og.jpg?v=12" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/logo-square.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&amp;display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&amp;display=swap" /></noscript>
+  <link rel="preload" as="image" href="/images/qy-040-finished-qy-logo.webp" fetchpriority="high" />
   <style>
+    /* v12 palette: stone floor, night steel, Chi Yang blue (from logo), titanium door-frame trim */
     :root {
-      --bg: #f3eee4;
-      --bg-ink: #141414;
-      --fg: #141414;
-      --muted: #3d3830;
-      --seal: #c41a2b;
-      --seal-hover: #a61624;
-      --paper: #f7f3ea;
-      --line: rgba(20, 20, 20, 0.28);
-      --display: "Songti TC", "PMingLiU", "Noto Serif TC", serif;
-      --sans: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      --stone: #f2f1ee;
+      --white: #ffffff;
+      --night: #0f1e30;
+      --fg: #16212e;
+      --steel: #465160;
+      --blue: #0b4a86;
+      --blue-hover: #083a6b;
+      --ti: #b59b6b;
+      --ti-light: #c8b18a;
+      --ti-ink: #7d6640;
+      --line: rgba(22, 33, 46, .14);
+      --line-strong: rgba(22, 33, 46, .3);
+      --on-night: #eef0f2;
+      --on-night-soft: rgba(238, 240, 242, .76);
+      --line-night: rgba(238, 240, 242, .16);
+      --display: "Noto Serif TC", "Noto Serif CJK TC", "Songti TC", "Source Han Serif TC", serif;
+      --sans: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Noto Sans CJK TC", system-ui, sans-serif;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: auto; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
-      margin: 0;
-      background: var(--bg);
-      background-image: radial-gradient(rgba(20,20,20,.06) 0.6px, transparent 0.6px);
-      background-size: 3px 3px;
-      color: var(--fg);
-      font-family: var(--sans);
-      font-size: 1.125rem;
-      line-height: 1.75;
+      margin: 0; background: var(--stone); color: var(--fg);
+      font-family: var(--sans); font-size: 1.125rem; line-height: 1.8;
     }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; }
-    h1, h2, h3, .hengpi, .nav a, .btn, .kicker {
-      word-break: keep-all;
-      overflow-wrap: normal;
-    }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+    .night :focus-visible, .cta :focus-visible, .foot :focus-visible, .dock :focus-visible { outline-color: var(--ti-light); }
+    [id] { scroll-margin-top: 5.5rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .skip { position: absolute; left: -999px; top: 0; }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 90; background: var(--night); color: var(--on-night); padding: .5rem .8rem; }
     .shell { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
-    .site-header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--line);
+    h1, h2, h3 { word-break: keep-all; overflow-wrap: anywhere; }
+
+    /* header */
+    .site-header { background: var(--white); border-bottom: 1px solid var(--line); }
+    @media (min-width: 1024px) { .site-header { position: sticky; top: 0; z-index: 40; } }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.25rem; }
+    .logo { display: flex; text-decoration: none; }
+    .logo img { height: 44px; width: auto; }
+    .nav, .bar-end { display: none; }
+    @media (min-width: 1024px) {
+      .nav { display: flex; gap: clamp(1.1rem, 2.1vw, 2rem); }
+      .nav a { font-size: 1rem; letter-spacing: .06em; text-decoration: none; padding: .35rem 0; border-bottom: 2px solid transparent; }
+      .nav a:hover { color: var(--blue); }
+      .nav a[aria-current="page"] { border-bottom-color: var(--ti); }
+      .bar-end { display: flex; align-items: center; gap: 1.25rem; }
+      .bar-tel { text-decoration: none; letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+      .bar-tel:hover { color: var(--blue); }
     }
-    .bar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; padding: 0.75rem 0;
-    }
-    .logo img { height: 40px; width: auto; }
-    .jump {
-      display: flex; flex-wrap: wrap; gap: .7rem;
-      margin-top: 1.1rem;
-    }
-    .jump a {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 3rem; padding: .7rem 1.1rem;
-      border: 1px solid var(--line);
-      text-decoration: none; font-weight: 700; letter-spacing: .04em;
-      word-break: keep-all; white-space: nowrap;
-      touch-action: manipulation;
-    }
-    #story, #cases, #maintain { scroll-margin-top: 4.8rem; }
-    .display { font-family: var(--display); font-weight: 700; letter-spacing: .02em; line-height: 1.2; }
-    .kicker { font-size: .9375rem; font-weight: 500; letter-spacing: .1em; color: var(--muted); }
-    .hengpi { font-family: var(--display); font-weight: 700; letter-spacing: .08em; font-size: clamp(1.35rem, 5.2vw, 1.9rem); color: var(--seal); margin: 0; }
-    .chop {
-      display: inline-flex; align-items: center; border: 1.5px solid var(--seal);
-      color: var(--seal); padding: .15rem .4rem; font-family: var(--display);
-      font-size: .72rem; letter-spacing: .14em; line-height: 1; flex: none;
-    }
+    .mnav { display: flex; justify-content: space-between; gap: .5rem; padding: 0 1rem; border-top: 1px solid var(--line); }
+    .mnav a { padding: .6rem .15rem .5rem; font-size: 1rem; letter-spacing: .08em; text-decoration: none; color: var(--steel); border-bottom: 2px solid transparent; }
+    .mnav a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--ti); }
+    @media (min-width: 1024px) { .mnav { display: none; } }
+
+    /* buttons */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
-      min-height: 3rem; padding: .75rem 1.25rem; border-radius: 2px;
-      font-size: 1.0625rem; font-weight: 700; letter-spacing: .06em;
-      text-decoration: none; border: 1px solid transparent;
+      min-height: 3.25rem; padding: .8rem 1.4rem; border-radius: 3px; border: 1px solid transparent;
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: .08em; line-height: 1.2;
+      text-decoration: none; white-space: nowrap; touch-action: manipulation;
+      transition: background-color .15s, border-color .15s, color .15s;
     }
-    .btn-primary { background: var(--seal); color: var(--paper); border-color: var(--seal); }
-    .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
-    .btn-on-ink { background: var(--paper); color: var(--fg); border-color: var(--paper); }
-    .hero {
-      display: grid; gap: 1.25rem;
-      grid-template-areas: "photo" "copy" "lead";
-      padding: 1.1rem 0 2.2rem; border-bottom: 1px solid var(--line);
+    .btn-sm { min-height: 2.75rem; padding: .55rem 1.1rem; font-size: 1rem; }
+    .btn-primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
+    .btn-ghost { background: transparent; border-color: var(--line-strong); color: var(--fg); }
+    .btn-ghost:hover { border-color: var(--fg); }
+    .btn-ti { background: var(--ti); border-color: var(--ti); color: var(--night); }
+    .btn-ti:hover { background: var(--ti-light); border-color: var(--ti-light); }
+    .btn-white { background: #fff; border-color: #fff; color: var(--blue); }
+    .btn-white:hover { background: var(--stone); border-color: var(--stone); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+
+    /* type */
+    .h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.75rem, 4.2vw, 2.6rem); line-height: 1.4; letter-spacing: .04em; text-wrap: balance; word-break: keep-all; overflow-wrap: anywhere; }
+    .body-l { max-width: 38rem; margin: 1.1rem 0 0; font-size: 1.1875rem; color: var(--steel); }
+    .plate {
+      display: inline-flex; align-items: center; flex: none; white-space: nowrap;
+      border: 1px solid currentColor; color: var(--ti-ink); padding: .3rem .5rem .28rem;
+      font-family: var(--display); font-weight: 600; font-size: .875rem; letter-spacing: .14em; line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
-    .hero-copy { grid-area: copy; }
-    .hero-photo { grid-area: photo; }
-    .hero-lead { grid-area: lead; }
-    @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: auto 1fr;
-        grid-template-areas: "copy photo" "lead photo";
-        align-items: end; gap: 2.2rem; padding: 2.4rem 0 2.8rem;
-      }
+    .band { padding: clamp(3.25rem, 7vw, 5.5rem) 0; }
+
+    /* hero: the couplet hangs on either side of the elevator door, like a front door at New Year */
+    .hero { padding: clamp(1.6rem, 4vw, 3.25rem) 0 clamp(2.75rem, 5vw, 4.5rem); }
+    .hero-grid { display: grid; gap: 2.25rem; }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: clamp(2.5rem, 5vw, 5rem); }
     }
-    .couplet { display: flex; flex-direction: row-reverse; align-items: stretch; gap: 0.9rem; height: 13.5rem; margin-top: 1rem; }
-    .couplet-col { writing-mode: vertical-rl; font-family: var(--display); font-weight: 700; font-size: 2.05rem; line-height: 1.12; letter-spacing: .12em; margin: 0; }
-    .couplet-rule { width: 2px; background: var(--seal); flex: 0 0 2px; }
+    .door {
+      display: grid; justify-content: center;
+      grid-template-columns: auto minmax(0, var(--door-w, 1fr)) auto;
+      grid-template-areas: "head head head" "l frame r" "cap cap cap";
+      column-gap: clamp(.75rem, 3vw, 2rem);
+    }
+    @media (min-width: 1024px) { .door { --door-w: min(calc(64vh * .75), 450px); } }
+    .door-head {
+      grid-area: head; margin: 0 0 clamp(1rem, 2.6vw, 1.5rem); text-align: center;
+      font-family: var(--display); font-weight: 600; color: var(--ti-ink);
+      font-size: clamp(1.0625rem, 3.4vw, 1.375rem); letter-spacing: .55em; text-indent: .55em; line-height: 1.2;
+    }
+    /* the posts read as lacquered pillar couplets (楹聯): night boards, titanium characters */
+    .post {
+      margin: 7px 0; padding: .7em .34em; display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+      background: var(--night); color: var(--ti-light);
+      font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 6.6vw, 3rem); line-height: 1;
+    }
+    .post-l { grid-area: l; }
+    .post-r { grid-area: r; }
+    .frame { grid-area: frame; margin: 7px; outline: 1px solid var(--ti); outline-offset: 6px; background: #e7e5e0; }
+    .frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+    .door-cap { grid-area: cap; display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin: 1.25rem 0 0; color: var(--steel); font-size: 1rem; }
+    .hero-lead { max-width: 31rem; }
+    .lead-strong { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.375rem, 3.2vw, 1.875rem); line-height: 1.5; letter-spacing: .04em; word-break: keep-all; overflow-wrap: anywhere; text-wrap: balance; }
+    .lead { margin: .6rem 0 0; font-size: 1.1875rem; color: var(--steel); }
+    .call { margin: 1.5rem 0 0; color: var(--steel); display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+    .call a { font-family: var(--display); font-weight: 600; font-size: 1.625rem; letter-spacing: .06em; color: var(--fg); text-decoration: none; font-variant-numeric: tabular-nums; }
+    .call a:hover { color: var(--blue); }
+
+    /* proof */
+    .proof { background: var(--white); border-block: 1px solid var(--line); }
+    .proof-grid { display: grid; }
+    .proof-item { display: grid; grid-template-columns: 7.5rem 1fr; align-items: center; gap: 1rem; padding: 1.15rem 0; }
+    .proof-item + .proof-item { border-top: 1px solid var(--line); }
+    .proof-item .num-label { margin: 0; }
     @media (min-width: 768px) {
-      .couplet { height: min(68vh, 32rem); gap: 1.1rem; }
-      .couplet-col { font-size: clamp(2.15rem, 6.4vw, 4.35rem); letter-spacing: .22em; }
+      .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .proof-item { display: block; padding: 2.1rem 2rem 2rem; }
+      .proof-item:first-child { padding-left: 0; }
+      .proof-item + .proof-item { border-top: 0; border-left: 1px solid var(--line); }
+      .proof-item .num-label { margin: .75rem 0 0; }
     }
-    .crop { position: relative; }
-    .crop-mark { position: absolute; width: 16px; height: 16px; border-color: var(--seal); border-style: solid; pointer-events: none; z-index: 2; }
-    .tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
-    .tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
-    .bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; }
-    .br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
-    .hero-photo img { width: 100%; height: min(52vh, 420px); object-fit: cover; }
-    @media (min-width: 900px) { .hero-photo img { height: min(78vh, 640px); } }
-    .caption { display: flex; justify-content: space-between; gap: .75rem; padding: .75rem 0; color: var(--muted); font-size: 1rem; }
-    section { padding: 3rem 0; }
-    .split { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .ink { background: var(--bg-ink); color: var(--paper); }
-    .ink .shell { display: grid; gap: 2rem; align-items: end; }
-    @media (min-width: 900px) { .ink .shell { grid-template-columns: 1fr auto; } }
-    .ink img { width: 100%; height: min(52vh, 480px); object-fit: cover; }
-    .ink .couplet-col { color: var(--paper); }
-    .ink .hengpi { color: var(--seal); }
-    .film { display: flex; gap: .6rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 1rem 0.5rem; }
-    .film article { flex: 0 0 auto; scroll-snap-align: start; width: min(78vw, 320px); }
-    .film img { width: 100%; height: min(58vh, 420px); object-fit: cover; background: #ddd; }
-    .film p { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; margin: .7rem 0 0; font-size: 1rem; }
-    ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    ol li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
-    ol li:last-child { border-bottom: 0; }
-    .n { font-family: var(--display); font-size: 1.25rem; color: var(--seal); }
-    .seal-band { background: var(--seal); color: var(--paper); }
-    .seal-band .phone a { color: var(--paper); text-decoration: none; }
-    .seal-band .btn-on-ink { background: var(--paper); color: var(--fg); border-color: var(--paper); }
-    .phone { font-family: var(--display); font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: .06em; margin: 1.4rem 0 0; }
-    .people { display: grid; gap: 1.2rem; }
-    @media (min-width: 700px) { .people { grid-template-columns: 180px 1fr; align-items: center; } }
-    .people img { width: 180px; height: 220px; object-fit: cover; }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0 7.2rem; font-size: 1rem; color: var(--muted); }
-    footer strong { color: var(--fg); font-weight: 700; }
-    footer p { margin: 0 0 .55rem; }
-    .tel { white-space: nowrap; }
+    .num { margin: 0; font-family: var(--display); font-weight: 600; color: var(--night); font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1; letter-spacing: .02em; white-space: nowrap; }
+    .num small { font-size: .4em; margin-left: .2em; letter-spacing: .1em; color: var(--ti-ink); }
+    .num-label { margin: .75rem 0 0; color: var(--steel); font-size: clamp(.9375rem, 2.4vw, 1.0625rem); line-height: 1.6; }
+
+    /* floor statement */
+    .seam { border-left: 2px solid var(--ti); padding-left: clamp(1rem, 3vw, 1.75rem); }
+
+    /* maintenance band */
+    .night { background: var(--night); color: var(--on-night); }
+    .m-grid { display: grid; gap: 2.25rem; }
+    @media (min-width: 900px) {
+      .m-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "photo copy"; align-items: end; gap: clamp(2.5rem, 6vw, 6rem); }
+      .m-photo { grid-area: photo; }
+      .m-copy { grid-area: copy; }
+    }
+    .m-photo { margin: 0; }
+    .m-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+    @media (max-width: 899px) { .m-photo img { aspect-ratio: 4 / 3; } }
+    .hengpi { margin: 0; font-family: var(--display); font-weight: 600; color: var(--ti); font-size: clamp(1.125rem, 3.4vw, 1.375rem); letter-spacing: .45em; }
+    .couplet-h { margin: 1rem 0 0; font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 8vw, 3.5rem); line-height: 1.3; letter-spacing: .12em; }
+    .couplet-h span { display: block; }
+    @media (min-width: 900px) {
+      .couplet-h { writing-mode: vertical-rl; height: 6.4em; line-height: 1.25; letter-spacing: .22em; margin-top: 1.5rem; }
+      .couplet-h span + span { border-block-start: 1px solid var(--ti); padding-block-start: .45em; margin-block-start: .45em; }
+    }
+    .m-note { max-width: 22rem; margin: 1.5rem 0 0; color: var(--on-night-soft); }
+
+    /* customer voice */
+    .voice { background: var(--white); }
+    .voice-grid { display: grid; gap: 1.75rem; }
+    @media (min-width: 900px) { .voice-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: center; gap: clamp(2.5rem, 5vw, 4.5rem); } }
+    .voice-media { position: relative; display: block; }
+    .voice-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #e7e5e0; }
+    .play { position: absolute; left: 50%; top: 50%; width: 4.25rem; height: 4.25rem; margin: -2.125rem 0 0 -2.125rem; border-radius: 50%; background: rgba(15, 30, 48, .72); display: grid; place-items: center; }
+    .play::after { content: ""; border-style: solid; border-width: .75rem 0 .75rem 1.2rem; border-color: transparent transparent transparent #fff; margin-left: .25rem; }
+    .voice h3 { margin: 1.1rem 0 0; font-family: var(--display); font-weight: 700; font-size: 1.375rem; letter-spacing: .04em; line-height: 1.45; }
+    .voice-note { margin: .45rem 0 0; color: var(--steel); }
+    .actions .more { align-self: center; margin-left: .5rem; }
+
+    /* film */
+    .head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .more { font-size: 1rem; letter-spacing: .06em; color: var(--blue); text-underline-offset: .3em; }
+    .film {
+      display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      padding: 0 max(1rem, calc((100% - 1180px) / 2)) .75rem; scroll-padding-inline: max(1rem, calc((100% - 1180px) / 2));
+    }
+    .film article { flex: 0 0 auto; width: min(74vw, 320px); scroll-snap-align: start; }
+    .film img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #e7e5e0; }
+    .film p { display: flex; justify-content: space-between; align-items: center; gap: .6rem; margin: .8rem 0 0; font-size: 1rem; }
+
+    /* wall */
+    .wall { background: var(--white); }
+    .wall-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-top: 1.75rem; }
+    @media (min-width: 720px) { .wall-grid { grid-template-columns: repeat(8, 1fr); } }
+    .wall-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #e7e5e0; }
+
+    /* steps as floors */
+    .floors { list-style: none; margin: 2.25rem 0 0; padding: 0; position: relative; max-width: 44rem; }
+    .floors::before { content: ""; position: absolute; left: calc(1.6rem - .5px); top: 1.6rem; bottom: 1.6rem; width: 1px; background: var(--line-strong); }
+    .floors li { position: relative; display: grid; grid-template-columns: 3.2rem 1fr; gap: 1.25rem; padding-bottom: 1.9rem; }
+    .floors li:last-child { padding-bottom: 0; }
+    .fl {
+      position: relative; z-index: 1; width: 3.2rem; height: 3.2rem; border-radius: 50%;
+      border: 1.5px solid var(--ti); background: var(--stone); display: grid; place-items: center;
+      font-family: var(--display); font-weight: 600; font-size: 1.0625rem; color: var(--fg);
+    }
+    .floors h3 { margin: .5rem 0 0; font-family: var(--display); font-weight: 700; font-size: 1.3125rem; letter-spacing: .04em; line-height: 1.4; }
+    .floors p { margin: .3rem 0 0; color: var(--steel); }
+
+    /* closing call */
+    .cta { background: var(--blue); color: #fff; }
+    .cta .body-l { color: rgba(255, 255, 255, .86); }
+    .cta-phone { margin: 1.5rem 0 0; }
+    .cta-phone a { font-family: var(--display); font-weight: 600; font-size: clamp(2.25rem, 8vw, 3.5rem); letter-spacing: .06em; color: #fff; text-decoration: none; font-variant-numeric: tabular-nums; }
+
+    /* footer */
+    .foot { background: var(--night); color: var(--on-night); }
+    .foot-grid { display: grid; gap: 2.75rem; padding: 3.5rem 0; }
+    @media (min-width: 768px) { .foot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4rem 0; } }
+    .foot-k { margin: 0; font-size: .9375rem; letter-spacing: .1em; color: rgba(238, 240, 242, .5); }
+    .foot-slogan { margin: 1rem 0 0; font-family: var(--display); font-weight: 600; font-size: 1.5rem; line-height: 1.5; letter-spacing: .04em; }
+    .foot-sub { margin: .6rem 0 0; color: var(--on-night-soft); font-size: 1rem; }
+    .foot ul { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .7rem; font-size: 1rem; }
+    .foot a { text-decoration: none; }
+    .foot a:hover { color: var(--ti-light); }
+    .foot .place { color: var(--on-night-soft); }
+    .foot .place strong { display: block; color: var(--on-night); font-weight: 600; }
+    .foot-legal { border-top: 1px solid var(--line-night); }
+    .foot-legal p { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin: 0 auto; padding: 1.25rem 0; font-size: .9375rem; color: rgba(238, 240, 242, .66); }
+    @media (max-width: 767px) { .foot-legal p { padding-bottom: calc(5.6rem + env(safe-area-inset-bottom, 0px)); } }
+
+    /* mobile dock */
     .dock {
       position: fixed; right: 0; bottom: 0; left: 0; z-index: 40;
-      display: grid; grid-template-columns: 1fr 1fr 1.25fr;
-      gap: .4rem; padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom, 0px));
-      background: var(--bg-ink);
+      display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: .45rem;
+      padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom, 0px));
+      background: var(--night); box-shadow: 0 -8px 24px rgba(15, 30, 48, .18);
     }
     .dock a {
       display: flex; min-height: 3.15rem; align-items: center; justify-content: center;
-      border-radius: 2px; background: var(--bg); color: var(--fg);
-      font-size: 1.0625rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+      border-radius: 3px; background: var(--white); color: var(--fg);
+      font-size: 1.0625rem; font-weight: 700; letter-spacing: .06em; text-decoration: none;
       white-space: nowrap; touch-action: manipulation;
     }
-    .dock .go { background: var(--seal); color: var(--paper); }
-    @media (min-width: 768px) {
-      .dock { display: none; }
-      footer { padding-bottom: 2.4rem; }
-    }
-    footer strong { color: var(--fg); font-weight: 700; }
-    footer p { margin: 0 0 .55rem; }
-    .tel { white-space: nowrap; }
-    @media (min-width: 768px) {
-      footer { padding-bottom: 2.4rem; }
-    }
-    .proof { border-bottom: 1px solid var(--line); }
-    .proof .shell { display: grid; grid-template-columns: repeat(2, 1fr); }
-    .proof-item { padding: 1.6rem 1rem 1.5rem 0; }
-    .proof-item + .proof-item { border-left: 1px solid var(--line); padding-left: 1.4rem; }
-    .proof-num { font-family: var(--display); font-weight: 700; color: var(--seal); font-size: clamp(2.6rem, 9vw, 4rem); line-height: 1; letter-spacing: .02em; }
-    .proof-num small { font-size: .38em; margin-left: .15em; color: var(--fg); letter-spacing: .1em; }
-    .proof-label { margin: .7rem 0 0; color: var(--muted); font-size: 1rem; letter-spacing: .08em; }
-    .wall { padding: 3rem 0 3.2rem; }
-    .wall-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 1.4rem; }
-    .wall-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: var(--paper); }
-    @media (min-width: 720px) { .wall-grid { grid-template-columns: repeat(8, 1fr); } }
+    .dock .go { background: var(--ti); color: var(--night); }
+    @media (min-width: 768px) { .dock { display: none; } }
   </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"啟揚機電有限公司","url":"https://chiyang9982.com.tw/","logo":"https://chiyang9982.com.tw/brand/logo-square.jpg","image":"https://chiyang9982.com.tw/og.jpg","telephone":"+886-7-353-8504","taxID":"42803635","address":{"@type":"PostalAddress","streetAddress":"民族路15-10號","addressLocality":"大社區","addressRegion":"高雄市","addressCountry":"TW"}}
+  </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-854591160"></script>
 <script>
@@ -186,231 +287,287 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
 </script>
 </head>
 <body>
+  <a class="skip" href="#main">跳至主要內容</a>
   <header class="site-header">
     <div class="shell bar">
-      <a class="logo" href="./"><img src="images/chiyang-logo-lockup.png" alt="啟揚機電有限公司" width="180" height="50" /></a>
+      <a class="logo" href="/"><img src="/brand/chiyang-logo-lockup.png" alt="啟揚機電有限公司" width="180" height="50" /></a>
+      <nav class="nav" aria-label="主要導覽">
+        <a href="/" aria-current="page">首頁</a>
+        <a href="/about">關於啟揚</a>
+        <a href="/cases">工程現場</a>
+        <a href="/stories">顧客訪談</a>
+        <a href="/equipment">設備型錄</a>
+        <a href="/contact">聯絡評估</a>
+      </nav>
+      <div class="bar-end">
+        <a class="bar-tel" href="tel:+88673538504">07-353-8504</a>
+        <a class="btn btn-primary btn-sm" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
+      </div>
     </div>
+    <nav class="mnav" aria-label="主要導覽">
+      <a href="/" aria-current="page">首頁</a>
+      <a href="/about">關於</a>
+      <a href="/cases">現場</a>
+      <a href="/stories">訪談</a>
+      <a href="/equipment">型錄</a>
+      <a href="/contact">聯絡</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="shell hero">
-      <div class="hero-copy">
-        <p class="hengpi">舊透天加梯</p>
-        <div class="couplet" aria-label="電梯不好裝，啟揚就來裝。">
-          <p class="couplet-col">電梯不好裝</p>
-          <span class="couplet-rule" aria-hidden="true"></span>
-          <p class="couplet-col">啟揚就來裝</p>
-        </div>
-      </div>
-      <div class="hero-photo crop">
-        <span class="crop-mark tl"></span><span class="crop-mark tr"></span>
-        <span class="crop-mark bl"></span><span class="crop-mark br"></span>
-        <img src="images/qy-040-finished-qy-logo.webp" alt="樓梯旁加裝電梯的完成畫面" width="960" height="1280" />
-        <div class="caption"><span class="chop">QY-040</span><span>匿名工程 · 完成面</span></div>
-      </div>
-      <div class="hero-lead">
-        <p style="margin:0; max-width:22rem; color:var(--muted);">空間窄、別家不接、地板不能大挖。先看這個家怎麼住，再談電梯怎麼放。</p>
-        <div class="jump">
-          <a class="btn btn-primary" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
-          <a class="btn btn-ghost" href="#cases">看現場照片</a>
-        </div>
-        <p style="margin:1.25rem 0 0;">
-          <span style="color:var(--muted);">來電　</span>
-          <a class="tel" href="tel:+88673538504" style="text-decoration:none; letter-spacing:.06em;">07-353-8504</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="proof" aria-label="啟揚的經驗與案量">
-      <div class="shell">
-        <div class="proof-item">
-          <p class="proof-num" style="margin:0;">25<small>年</small></p>
-          <p class="proof-label">創辦人投入電梯工程</p>
-        </div>
-        <div class="proof-item">
-          <p class="proof-num" style="margin:0;">上百<small>件</small></p>
-          <p class="proof-label">完成的電梯案場</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="shell" id="story">
-      <p class="kicker">為什麼找啟揚</p>
-      <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.4rem); margin:.7rem 0 0;">別家說裝不了的家，我們來看現場。</h2>
-      <p style="max-width:38rem; margin:1.1rem 0 0; font-size:1.15rem;">這不是樣品屋。是已經住進去的透天：樓梯窄、位置怪、地板不能大挖。先看這個家怎麼住，能裝才說怎麼裝。裝完，保養也找我們。</p>
-    </section>
-
-    <section class="ink" id="maintain">
-      <div class="shell">
-        <div class="crop">
-          <span class="crop-mark tl"></span><span class="crop-mark tr"></span>
-          <span class="crop-mark bl"></span><span class="crop-mark br"></span>
-          <img src="images/qy-040-progress-qy-logo.webp" alt="井道安裝中" width="1108" height="1477" />
-        </div>
-        <div>
-          <p class="hengpi">裝完也養</p>
-          <div class="couplet" aria-label="電梯不好養，啟揚就來養。">
-            <p class="couplet-col">電梯不好養</p>
-            <span class="couplet-rule" aria-hidden="true"></span>
-            <p class="couplet-col">啟揚就來養</p>
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <h1 class="sr-only">啟揚機電｜舊透天加梯：電梯不好裝，啟揚就來裝</h1>
+        <div class="door">
+          <p class="door-head" aria-hidden="true">舊透天加梯</p>
+          <p class="post post-l" aria-hidden="true"><span>電</span><span>梯</span><span>不</span><span>好</span><span>裝</span></p>
+          <div class="frame">
+            <img src="/images/qy-040-finished-qy-logo.webp" alt="樓梯旁加裝電梯的完成畫面" width="960" height="1280" fetchpriority="high" />
           </div>
-          <p style="margin:1.4rem 0 0; max-width:18rem; color:rgba(243,238,228,.8);">保養、維修請直接打電話。下面的需求表是給新梯用的。</p>
-          <a class="btn btn-on-ink" style="margin-top:1.1rem;" href="tel:+88673538504">保養請來電</a>
+          <p class="post post-r" aria-hidden="true"><span>啟</span><span>揚</span><span>就</span><span>來</span><span>裝</span></p>
+          <p class="door-cap"><span class="plate">QY-040</span><span>匿名工程｜完成面</span></p>
+        </div>
+        <div class="hero-lead">
+          <p class="lead-strong">空間窄、別家不接、地板不能大挖。</p>
+          <p class="lead">先看這個家怎麼住，再談電梯怎麼放。</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
+            <a class="btn btn-ghost" href="#cases">看現場照片</a>
+          </div>
+          <p class="call">來電<a href="tel:+88673538504">07-353-8504</a></p>
         </div>
       </div>
     </section>
 
-    <section class="shell split">
-      <p class="hengpi">地板不能挖，啟揚有辦法。</p>
-      <p style="max-width:34rem; margin:1rem 0 0; color:var(--muted);">以現勘為準，不是每戶都能少動地板。</p>
+    <section class="proof" aria-label="啟揚的經驗與規模">
+      <div class="shell proof-grid">
+        <div class="proof-item">
+          <p class="num">25<small>年</small></p>
+          <p class="num-label">創辦人投入電梯工程</p>
+        </div>
+        <div class="proof-item">
+          <p class="num">上百<small>件</small></p>
+          <p class="num-label">完成的電梯案場</p>
+        </div>
+        <div class="proof-item">
+          <p class="num">4<small>處</small></p>
+          <p class="num-label">高雄、台南、台中、桃園據點</p>
+        </div>
+      </div>
     </section>
 
-    <section id="cases">
-      <div class="shell" style="margin-bottom:1rem;">
-        <p class="kicker">工程現場</p>
-        <h2 class="display" style="font-size:2rem; margin:.6rem 0 0;">不是樣品屋</h2>
+    <section class="band" id="story">
+      <div class="shell">
+        <h2 class="h2">別家說裝不了的家，我們來看現場。</h2>
+        <p class="body-l">這不是樣品屋。是已經住進去的透天：樓梯窄、位置怪、地板不能大挖。先看這個家怎麼住，能裝才說怎麼裝。裝完，保養也找我們。</p>
+      </div>
+    </section>
+
+    <section class="band night" id="maintain">
+      <div class="shell m-grid">
+        <div class="m-copy">
+          <p class="hengpi">裝完也養</p>
+          <h2 class="couplet-h" aria-label="電梯不好養，啟揚就來養。"><span>電梯不好養</span><span>啟揚就來養</span></h2>
+          <p class="m-note">保養、維修請直接打電話。下面的需求表是給新梯用的。</p>
+          <a class="btn btn-ti" style="margin-top:1.25rem;" href="tel:+88673538504">保養請來電</a>
+        </div>
+        <figure class="m-photo">
+          <img src="/images/qy-040-progress-qy-logo.webp" alt="井道安裝中" width="1050" height="1400" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell seam">
+        <h2 class="h2">地板不能挖，啟揚有辦法。</h2>
+        <p class="body-l">以現勘為準，不是每戶都能少動地板。</p>
+      </div>
+    </section>
+
+    <section class="band voice" id="customer-stories">
+      <div class="shell voice-grid">
+        <a class="voice-media" href="https://www.facebook.com/reel/2047082872592579" target="_blank" rel="noopener noreferrer">
+          <img src="/images/stories/customer-01-cover.webp" alt="顧客訪談｜三四樓、樓梯窄" width="1200" height="675" loading="lazy" decoding="async" />
+          <span class="play" aria-hidden="true"></span><span class="sr-only">在臉書看顧客訪談影片</span>
+        </a>
+        <div>
+          <h2 class="h2">屋主怎麼講</h2>
+          <h3>三四樓、樓梯窄</h3>
+          <p class="voice-note">搬東西跌倒過。家有長輩與小孩要上下樓。</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://www.facebook.com/reel/2047082872592579" target="_blank" rel="noopener noreferrer">在臉書看影片</a>
+            <a class="more" href="/stories">更多訪談</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="cases">
+      <div class="shell head-row">
+        <h2 class="h2">工程現場，不是樣品屋</h2>
+        <a class="more" href="/cases">看全部案場</a>
       </div>
       <div class="film">
         <article>
-          <img src="images/qy-750.webp" alt="高雄三民家用梯" width="640" height="800" />
-          <p><span class="chop">QY-750</span><span>高雄三民｜家用梯</span></p>
+          <img src="/images/qy-750.webp" alt="高雄三民家用梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-750</span><span>高雄三民｜家用梯</span></p>
         </article>
         <article>
-          <img src="images/qy-730.webp" alt="台南南區家用梯" width="640" height="800" />
-          <p><span class="chop">QY-730</span><span>台南南區｜家用梯</span></p>
+          <img src="/images/qy-730.webp" alt="台南南區家用梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-730</span><span>台南南區｜家用梯</span></p>
         </article>
         <article>
-          <img src="images/qy-740.webp" alt="桃園龜山家用梯" width="640" height="800" />
-          <p><span class="chop">QY-740</span><span>桃園龜山｜家用梯</span></p>
+          <img src="/images/qy-740.webp" alt="桃園龜山家用梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-740</span><span>桃園龜山｜家用梯</span></p>
         </article>
         <article>
-          <img src="images/qy-715.webp" alt="高雄梓官家用梯" width="640" height="800" />
-          <p><span class="chop">QY-715</span><span>高雄梓官｜家用梯</span></p>
+          <img src="/images/qy-715.webp" alt="高雄梓官家用梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-715</span><span>高雄梓官｜家用梯</span></p>
         </article>
         <article>
-          <img src="images/qy-689.webp" alt="高雄鳳山客梯" width="640" height="800" />
-          <p><span class="chop">QY-689</span><span>高雄鳳山｜客梯</span></p>
+          <img src="/images/qy-689.webp" alt="高雄鳳山客梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-689</span><span>高雄鳳山｜客梯</span></p>
         </article>
         <article>
-          <img src="images/qy-679.webp" alt="台南北區家用梯" width="640" height="800" />
-          <p><span class="chop">QY-679</span><span>台南北區｜家用梯</span></p>
+          <img src="/images/qy-679.webp" alt="台南北區家用梯" width="960" height="1280" loading="lazy" decoding="async" />
+          <p><span class="plate">QY-679</span><span>台南北區｜家用梯</span></p>
         </article>
       </div>
     </section>
 
-    <section class="wall" aria-label="案場照片牆">
+    <section class="band wall" aria-label="案場照片牆">
       <div class="shell">
-        <p class="kicker">上百件案場</p>
-        <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.4rem); margin:.6rem 0 0;">從高雄到桃園，這裡是其中一部分。</h2>
+        <h2 class="h2">上百件案場，從高雄到桃園。</h2>
+        <p class="body-l">這裡是其中一部分。</p>
         <div class="wall-grid">
-          <img src="images/works/qy-770.webp" alt="啟揚電梯案場 QY-770" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-760.webp" alt="啟揚電梯案場 QY-760" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-750.webp" alt="啟揚電梯案場 QY-750" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-740.webp" alt="啟揚電梯案場 QY-740" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-730.webp" alt="啟揚電梯案場 QY-730" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-720.webp" alt="啟揚電梯案場 QY-720" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-715.webp" alt="啟揚電梯案場 QY-715" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-709.webp" alt="啟揚電梯案場 QY-709" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-699.webp" alt="啟揚電梯案場 QY-699" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-689.webp" alt="啟揚電梯案場 QY-689" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-679.webp" alt="啟揚電梯案場 QY-679" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-675.webp" alt="啟揚電梯案場 QY-675" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-663.webp" alt="啟揚電梯案場 QY-663" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-651.webp" alt="啟揚電梯案場 QY-651" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-639.webp" alt="啟揚電梯案場 QY-639" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-627.webp" alt="啟揚電梯案場 QY-627" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-615.webp" alt="啟揚電梯案場 QY-615" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-603.webp" alt="啟揚電梯案場 QY-603" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-591.webp" alt="啟揚電梯案場 QY-591" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-579.webp" alt="啟揚電梯案場 QY-579" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-567.webp" alt="啟揚電梯案場 QY-567" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-555.webp" alt="啟揚電梯案場 QY-555" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-549.webp" alt="啟揚電梯案場 QY-549" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-543.webp" alt="啟揚電梯案場 QY-543" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-531.webp" alt="啟揚電梯案場 QY-531" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-528.webp" alt="啟揚電梯案場 QY-528" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-516.webp" alt="啟揚電梯案場 QY-516" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-504.webp" alt="啟揚電梯案場 QY-504" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-492.webp" alt="啟揚電梯案場 QY-492" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-480.webp" alt="啟揚電梯案場 QY-480" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-468.webp" alt="啟揚電梯案場 QY-468" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-456.webp" alt="啟揚電梯案場 QY-456" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-444.webp" alt="啟揚電梯案場 QY-444" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-441.webp" alt="啟揚電梯案場 QY-441" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-437.webp" alt="啟揚電梯案場 QY-437" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-428.webp" alt="啟揚電梯案場 QY-428" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-418.webp" alt="啟揚電梯案場 QY-418" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-408.webp" alt="啟揚電梯案場 QY-408" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-403.webp" alt="啟揚電梯案場 QY-403" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-395.webp" alt="啟揚電梯案場 QY-395" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-387.webp" alt="啟揚電梯案場 QY-387" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-383.webp" alt="啟揚電梯案場 QY-383" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-378.webp" alt="啟揚電梯案場 QY-378" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-370.webp" alt="啟揚電梯案場 QY-370" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-362.webp" alt="啟揚電梯案場 QY-362" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-354.webp" alt="啟揚電梯案場 QY-354" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-352.webp" alt="啟揚電梯案場 QY-352" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-344.webp" alt="啟揚電梯案場 QY-344" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-336.webp" alt="啟揚電梯案場 QY-336" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-333.webp" alt="啟揚電梯案場 QY-333" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-327.webp" alt="啟揚電梯案場 QY-327" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-321.webp" alt="啟揚電梯案場 QY-321" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-315.webp" alt="啟揚電梯案場 QY-315" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-309.webp" alt="啟揚電梯案場 QY-309" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-303.webp" alt="啟揚電梯案場 QY-303" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-297.webp" alt="啟揚電梯案場 QY-297" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-285.webp" alt="啟揚電梯案場 QY-285" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-261.webp" alt="啟揚電梯案場 QY-261" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-255.webp" alt="啟揚電梯案場 QY-255" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-243.webp" alt="啟揚電梯案場 QY-243" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-237.webp" alt="啟揚電梯案場 QY-237" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-225.webp" alt="啟揚電梯案場 QY-225" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-219.webp" alt="啟揚電梯案場 QY-219" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-213.webp" alt="啟揚電梯案場 QY-213" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-207.webp" alt="啟揚電梯案場 QY-207" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-201.webp" alt="啟揚電梯案場 QY-201" loading="lazy" decoding="async" width="160" height="160" />
-          <img src="images/works/qy-177.webp" alt="啟揚電梯案場 QY-177" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-770.webp" alt="啟揚電梯案場 QY-770" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-760.webp" alt="啟揚電梯案場 QY-760" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-750.webp" alt="啟揚電梯案場 QY-750" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-740.webp" alt="啟揚電梯案場 QY-740" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-730.webp" alt="啟揚電梯案場 QY-730" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-720.webp" alt="啟揚電梯案場 QY-720" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-715.webp" alt="啟揚電梯案場 QY-715" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-709.webp" alt="啟揚電梯案場 QY-709" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-699.webp" alt="啟揚電梯案場 QY-699" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-689.webp" alt="啟揚電梯案場 QY-689" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-679.webp" alt="啟揚電梯案場 QY-679" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-675.webp" alt="啟揚電梯案場 QY-675" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-663.webp" alt="啟揚電梯案場 QY-663" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-651.webp" alt="啟揚電梯案場 QY-651" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-639.webp" alt="啟揚電梯案場 QY-639" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-627.webp" alt="啟揚電梯案場 QY-627" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-615.webp" alt="啟揚電梯案場 QY-615" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-603.webp" alt="啟揚電梯案場 QY-603" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-591.webp" alt="啟揚電梯案場 QY-591" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-579.webp" alt="啟揚電梯案場 QY-579" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-567.webp" alt="啟揚電梯案場 QY-567" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-555.webp" alt="啟揚電梯案場 QY-555" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-549.webp" alt="啟揚電梯案場 QY-549" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-543.webp" alt="啟揚電梯案場 QY-543" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-531.webp" alt="啟揚電梯案場 QY-531" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-528.webp" alt="啟揚電梯案場 QY-528" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-516.webp" alt="啟揚電梯案場 QY-516" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-504.webp" alt="啟揚電梯案場 QY-504" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-492.webp" alt="啟揚電梯案場 QY-492" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-480.webp" alt="啟揚電梯案場 QY-480" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-468.webp" alt="啟揚電梯案場 QY-468" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-456.webp" alt="啟揚電梯案場 QY-456" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-444.webp" alt="啟揚電梯案場 QY-444" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-441.webp" alt="啟揚電梯案場 QY-441" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-437.webp" alt="啟揚電梯案場 QY-437" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-428.webp" alt="啟揚電梯案場 QY-428" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-418.webp" alt="啟揚電梯案場 QY-418" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-408.webp" alt="啟揚電梯案場 QY-408" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-403.webp" alt="啟揚電梯案場 QY-403" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-395.webp" alt="啟揚電梯案場 QY-395" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-387.webp" alt="啟揚電梯案場 QY-387" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-383.webp" alt="啟揚電梯案場 QY-383" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-378.webp" alt="啟揚電梯案場 QY-378" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-370.webp" alt="啟揚電梯案場 QY-370" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-362.webp" alt="啟揚電梯案場 QY-362" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-354.webp" alt="啟揚電梯案場 QY-354" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-352.webp" alt="啟揚電梯案場 QY-352" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-344.webp" alt="啟揚電梯案場 QY-344" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-336.webp" alt="啟揚電梯案場 QY-336" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-333.webp" alt="啟揚電梯案場 QY-333" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-327.webp" alt="啟揚電梯案場 QY-327" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-321.webp" alt="啟揚電梯案場 QY-321" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-315.webp" alt="啟揚電梯案場 QY-315" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-309.webp" alt="啟揚電梯案場 QY-309" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-303.webp" alt="啟揚電梯案場 QY-303" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-297.webp" alt="啟揚電梯案場 QY-297" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-285.webp" alt="啟揚電梯案場 QY-285" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-261.webp" alt="啟揚電梯案場 QY-261" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-255.webp" alt="啟揚電梯案場 QY-255" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-243.webp" alt="啟揚電梯案場 QY-243" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-237.webp" alt="啟揚電梯案場 QY-237" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-225.webp" alt="啟揚電梯案場 QY-225" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-219.webp" alt="啟揚電梯案場 QY-219" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-213.webp" alt="啟揚電梯案場 QY-213" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-207.webp" alt="啟揚電梯案場 QY-207" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-201.webp" alt="啟揚電梯案場 QY-201" loading="lazy" decoding="async" width="160" height="160" />
+          <img src="/images/works/qy-177.webp" alt="啟揚電梯案場 QY-177" loading="lazy" decoding="async" width="160" height="160" />
         </div>
-        <a class="btn btn-ghost" style="margin-top:1.6rem;" href="/cases/">看工程現場</a>
+        <a class="btn btn-ghost" style="margin-top:1.75rem;" href="/cases">看工程現場</a>
       </div>
     </section>
 
-    <section class="shell split">
-      <p class="kicker">怎麼開始</p>
-      <h2 class="display" style="font-size:1.9rem; margin:.6rem 0 1.2rem;">四步，先一起看能不能裝</h2>
-      <ol>
-        <li><span class="n">01</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">拍照傳圖</h3><p style="margin:.3rem 0 0; color:var(--muted);">樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
-        <li><span class="n">02</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">一起看能不能裝</h3><p style="margin:.3rem 0 0; color:var(--muted);">先講生活需求與現場限制。能做、不能做、下一步怎麼走，我們一起討論。</p></div></li>
-        <li><span class="n">03</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">到府現勘</h3><p style="margin:.3rem 0 0; color:var(--muted);">結構、動線、出入口與施工界面，以現場為準。</p></div></li>
-        <li><span class="n">04</span><div><h3 class="display" style="margin:0; font-size:1.25rem;">圖說與合約</h3><p style="margin:.3rem 0 0; color:var(--muted);">規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
-      </ol>
+    <section class="band">
+      <div class="shell">
+        <h2 class="h2">四步，先一起看能不能裝</h2>
+        <ol class="floors">
+          <li><span class="fl" aria-hidden="true">1F</span><div><h3>拍照傳圖</h3><p>樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
+          <li><span class="fl" aria-hidden="true">2F</span><div><h3>一起看能不能裝</h3><p>先講生活需求與現場限制。能做、不能做、下一步怎麼走，我們一起討論。</p></div></li>
+          <li><span class="fl" aria-hidden="true">3F</span><div><h3>到府現勘</h3><p>結構、動線、出入口與施工界面，以現場為準。</p></div></li>
+          <li><span class="fl" aria-hidden="true">4F</span><div><h3>圖說與合約</h3><p>規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
+        </ol>
+      </div>
     </section>
 
-    <section class="seal-band">
-      <div class="shell" style="padding:3.4rem 0;">
-        <p class="kicker" style="color:rgba(247,243,234,.75);">下一步</p>
-        <h2 class="display" style="font-size:clamp(1.8rem,5vw,2.6rem); margin:.6rem 0 0;">想裝電梯，先問啟揚</h2>
-        <p style="max-width:34rem; margin:1rem 0 0; font-size:1.15rem;">留下房屋類型、樓層和照片。能不能裝，我們一起討論。</p>
-        <p class="phone"><a href="tel:+88673538504">07-353-8504</a></p>
-        <a class="btn btn-on-ink" style="margin-top:1.5rem;" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
+    <section class="band cta">
+      <div class="shell">
+        <h2 class="h2">想裝電梯，先問啟揚</h2>
+        <p class="body-l">留下房屋類型和樓層，照片之後再傳。能不能裝，我們一起討論。</p>
+        <p class="cta-phone"><a href="tel:+88673538504">07-353-8504</a></p>
+        <div class="actions"><a class="btn btn-white" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a></div>
       </div>
     </section>
   </main>
 
-  <footer class="shell">
-    <div class="jump" style="margin:0 0 1.6rem;">
-      <a class="btn btn-ghost" href="#cases">看現場照片</a>
-      <a class="btn btn-primary" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
-      <a href="tel:+88673538504">打電話</a>
+  <footer class="foot">
+    <div class="shell foot-grid">
+      <div>
+        <p class="foot-k">啟揚機電</p>
+        <p class="foot-slogan">電梯不好裝，<br />啟揚就來裝。</p>
+        <p class="foot-sub">電梯不好養，啟揚就來養。</p>
+      </div>
+      <div>
+        <p class="foot-k">頁面</p>
+        <ul>
+          <li><a href="/">首頁</a></li>
+          <li><a href="/about">關於啟揚</a></li>
+          <li><a href="/cases">工程現場</a></li>
+          <li><a href="/stories">顧客訪談</a></li>
+          <li><a href="/equipment">設備型錄</a></li>
+          <li><a href="/contact">聯絡評估</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100064054864315" target="_blank" rel="noopener noreferrer">臉書</a></li>
+          <li><a href="https://www.instagram.com/chiyang.elevator/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-k">據點</p>
+        <ul>
+          <li class="place"><strong>高雄總公司</strong><a href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A7%E7%A4%BE%E5%8D%80%E6%B0%91%E6%97%8F%E8%B7%AF15-10%E8%99%9F" target="_blank" rel="noopener noreferrer">高雄市大社區民族路15-10號</a><br /><a href="tel:+88673538504">07-353-8504</a>　<a href="tel:0800000362">免付費 0800-000-362</a></li>
+          <li class="place"><strong>台南展銷中心</strong>台南市永康區中山北路343號<br /><a href="tel:+88662313662">06-231-3662</a></li>
+          <li><a href="/contact">台中、桃園據點</a></li>
+        </ul>
+      </div>
     </div>
-    <p><strong>啟揚機電有限公司</strong></p>
-    <p>統一編號 42803635　建築物昇降設備專業廠商登記證 40B1000357</p>
-    <p>高雄市大社區民族路15-10號</p>
-    <p>電話 <a class="tel" href="tel:+88673538504" style="text-decoration:none;">07-353-8504</a>　免付費 <span class="tel">0800-000-362</span></p>
-    <p>台南展銷中心</p>
-    <p>台南市永康區中山北路343號　<span class="tel">06-231-3662</span></p>
-    <p><a href="/privacy/">隱私權政策</a></p>
+    <div class="foot-legal">
+      <p class="shell"><span>© 2026 啟揚機電有限公司　統一編號 42803635　建築物昇降設備專業廠商登記證 40B1000357</span><a href="/privacy">隱私權政策</a></p>
+    </div>
   </footer>
+
   <nav class="dock" aria-label="手機快捷">
     <a href="tel:+88673538504">打電話</a>
     <a href="#cases">看現場</a>
