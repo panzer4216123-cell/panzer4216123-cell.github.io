@@ -276,6 +276,39 @@
     }
     .dock .go { background: var(--ti); color: var(--night); }
     @media (min-width: 768px) { .dock { display: none; } }
+
+    /* mobile v2 (啟揚38, 11/06): shorter page, one-row header, lower hero photo, bigger tap targets */
+    .wall-more { display: none; }
+    @media (max-width: 1023px) {
+      .site-header { display: flex; align-items: center; }
+      .site-header .bar { width: auto; flex: none; margin: 0; padding-left: 1rem; min-height: 3.5rem; }
+      .logo img { height: 32px; }
+      .mnav { flex: 1; min-width: 0; border-top: 0; justify-content: normal; gap: .1rem; padding: 0 .75rem 0 .5rem; overflow-x: auto; scrollbar-width: none; }
+      .mnav::-webkit-scrollbar { display: none; }
+      .mnav a[href="/"] { display: none; }
+      .mnav a[href="/about"] { margin-left: auto; }
+      .mnav a { flex: none; padding: .9rem .3rem .75rem; font-size: .9375rem; letter-spacing: .04em; }
+    }
+    @media (max-width: 379px) {
+      .logo img { height: 26px; }
+      .site-header .bar { padding-left: .75rem; }
+      .mnav { padding-right: .5rem; }
+      .mnav a { padding-inline: .2rem; font-size: .875rem; }
+    }
+    @media (max-width: 767px) {
+      .hero-photo img { aspect-ratio: 4 / 3; }
+      .hero-cap { margin-top: .5rem; }
+      .review-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .75rem; padding-bottom: .5rem; }
+      .review { flex: 0 0 82%; scroll-snap-align: start; }
+      .wall-grid img:nth-child(n+13) { display: none; }
+      .wall-more { display: inline-flex; margin-top: 1rem; }
+      .more { display: inline-flex; align-items: center; min-height: 2.75rem; }
+      .foot-grid { gap: 1.75rem; padding: 2.5rem 0; }
+      .foot-grid > div:nth-child(2) { display: none; }
+      .foot ul { gap: .25rem; }
+      .foot .place { padding: .35rem 0; }
+      .foot .place a, .foot-legal a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+    }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"LocalBusiness","name":"啟揚機電有限公司","url":"https://chiyang9982.com.tw/","logo":"https://chiyang9982.com.tw/brand/logo-square.jpg","image":"https://chiyang9982.com.tw/og.jpg","telephone":"+886-7-353-8504","taxID":"42803635","address":{"@type":"PostalAddress","streetAddress":"民族路15-10號","addressLocality":"大社區","addressRegion":"高雄市","addressCountry":"TW"}}
@@ -540,6 +573,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
           <img src="/images/works/qy-201.webp" alt="啟揚電梯案場 QY-201" loading="lazy" decoding="async" width="160" height="160" />
           <img src="/images/works/qy-177.webp" alt="啟揚電梯案場 QY-177" loading="lazy" decoding="async" width="160" height="160" />
         </div>
+        <a class="more wall-more" href="/cases">看全部案場 ›</a>
         <a class="btn btn-ghost" style="margin-top:1.75rem;" href="/cases">看工程現場</a>
       </div>
     </section>
