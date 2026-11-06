@@ -183,6 +183,12 @@
     .proof-link:hover .num-label { color: var(--blue); }
     .num .stars { color: var(--ti); font-size: .32em; margin-left: .2em; letter-spacing: .04em; vertical-align: .2em; }
     @media (min-width: 768px) { .num .stars { font-size: .45em; letter-spacing: .08em; } }
+    .faq details { border-bottom: 1px solid var(--line, #ddd); padding: 1rem 0; }
+    .faq summary { cursor: pointer; font-weight: 600; font-size: 1.0625rem; line-height: 1.6; list-style: none; position: relative; padding-right: 2rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "＋"; position: absolute; right: 0; top: 0; color: var(--ti); }
+    .faq details[open] summary::after { content: "－"; }
+    .faq details p { margin: .6rem 0 0; line-height: 1.85; color: var(--steel); }
     .reviews { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
     .reviews-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; margin-bottom: 1.25rem; }
     .reviews-head h3 { margin: 0; font-family: var(--display); font-size: 1.375rem; letter-spacing: .04em; }
@@ -370,7 +376,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
         <div class="m-copy">
           <p class="m-kicker">保養維修｜裝完找得到人</p>
           <h2 class="m-title">電梯不好養，<br />啟揚就來養。</h2>
-          <p class="m-note">保養、維修請直接打電話。下面的需求表是給新梯用的。</p>
+          <p class="m-note">保養、維修請直接打電話，各廠牌都可以，我們安排師傅到府。</p>
           <a class="btn btn-ti" style="margin-top:1.25rem;" href="tel:+88673538504">保養請來電</a>
         </div>
         <figure class="m-photo">
@@ -410,8 +416,8 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
         <div class="review-grid">
           <figure class="review">
             <p class="r-stars" aria-label="5 顆星">★★★★★</p>
-            <blockquote>我們家的電梯都是給他們家弄的！服務態度超級好，人員也非常的親切，大力推薦給大家，我也介紹我的親朋好友。</blockquote>
-            <figcaption>劉○華・Google 評論</figcaption>
+            <blockquote>電梯的樣式選項蠻多的，團隊的服務態度也不錯，很專業，後續的服務和維修也很盡責。</blockquote>
+            <figcaption>黃○玲・Google 評論</figcaption>
           </figure>
           <figure class="review">
             <p class="r-stars" aria-label="5 顆星">★★★★★</p>
@@ -463,6 +469,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
     <section class="band wall" aria-label="案場照片牆">
       <div class="shell">
         <h2 class="h2">上百件案場，從高雄到桃園。</h2>
+        <p class="body-l">每一張都是實際完工的現場。想看和你家條件相近的案例，打電話或傳照片給我們，挑給你看。</p>
         <p class="body-l">這裡是其中一部分。</p>
         <div class="wall-grid">
           <img src="/images/works/qy-770.webp" alt="啟揚電梯案場 QY-770" loading="lazy" decoding="async" width="160" height="160" />
@@ -541,11 +548,25 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
       <div class="shell">
         <h2 class="h2">四步，先一起看能不能裝</h2>
         <ol class="floors">
-          <li><span class="fl" aria-hidden="true">1F</span><div><h3>拍照傳圖</h3><p>樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
-          <li><span class="fl" aria-hidden="true">2F</span><div><h3>一起看能不能裝</h3><p>先講生活需求與現場限制。能做、不能做、下一步怎麼走，我們一起討論。</p></div></li>
-          <li><span class="fl" aria-hidden="true">3F</span><div><h3>到府現勘</h3><p>結構、動線、出入口與施工界面，以現場為準。</p></div></li>
-          <li><span class="fl" aria-hidden="true">4F</span><div><h3>圖說與合約</h3><p>規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
+          <li><span class="fl" aria-hidden="true">01</span><div><h3>拍照傳圖</h3><p>樓梯、預計位置、各樓層出入口。沒有尺寸也可以先傳。</p></div></li>
+          <li><span class="fl" aria-hidden="true">02</span><div><h3>一起看能不能裝</h3><p>先講生活需求與現場限制。能做、不能做、下一步怎麼走，我們一起討論。</p></div></li>
+          <li><span class="fl" aria-hidden="true">03</span><div><h3>到府現勘</h3><p>結構、動線、出入口與施工界面，以現場為準。</p></div></li>
+          <li><span class="fl" aria-hidden="true">04</span><div><h3>圖說與合約</h3><p>規格、範圍、保養怎麼接，寫進文件再進場。</p></div></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="band" id="faq">
+      <div class="shell">
+        <h2 class="h2">屋主常問</h2>
+        <div class="faq">
+          <details><summary>來現場看要收錢嗎？</summary><p>不用。現勘免費，看完再談能不能裝、怎麼裝。</p></details>
+          <details><summary>為什麼網站上沒有價格？</summary><p>每戶的樓梯寬度、樓層、結構都不一樣，同樣是四樓透天，做法可能差很多。現勘後才報價，規格和範圍都寫進文件，不會進場後才加價。</p></details>
+          <details><summary>保固多久？</summary><p>完工後保固一年，並有投保產品責任險。保固期後可以接著簽保養。</p></details>
+          <details><summary>停電會不會被關在電梯裡？</summary><p>每一台都裝了停電自動救援裝置（ARD），停電時電梯會自己開到最近的樓層、打開門。</p></details>
+          <details><summary>哪些地方可以服務？</summary><p>以高雄、台南為主，師傅也在南部。台中清水、桃園八德有展銷中心，可以預約試乘。</p></details>
+          <details><summary>別家裝的電梯也能找你們保養嗎？</summary><p>可以，各廠牌都能保養維修，請直接打 07-353-8504。</p></details>
+        </div>
       </div>
     </section>
 
@@ -584,7 +605,8 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
         <ul>
           <li class="place"><strong>高雄總公司</strong><a href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A7%E7%A4%BE%E5%8D%80%E6%B0%91%E6%97%8F%E8%B7%AF15-10%E8%99%9F" target="_blank" rel="noopener noreferrer">高雄市大社區民族路15-10號</a><br /><a href="tel:+88673538504">07-353-8504</a>　<a href="tel:0800000362">免付費 0800-000-362</a></li>
           <li class="place"><strong>台南展銷中心</strong>台南市永康區中山北路343號<br /><a href="tel:+88662313662">06-231-3662</a></li>
-          <li><a href="/contact">台中、桃園據點</a></li>
+          <li class="place"><strong>台中清水展銷中心</strong>台中市清水區民族路三段63號1樓<br /><a href="tel:0800000362">0800-000-362</a></li>
+          <li class="place"><strong>桃園展銷中心</strong>桃園市八德區仁德一路138號<br /><a href="tel:0800000362">0800-000-362</a></li>
         </ul>
       </div>
     </div>
