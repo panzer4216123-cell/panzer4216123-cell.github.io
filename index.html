@@ -278,7 +278,6 @@
     @media (min-width: 768px) { .dock { display: none; } }
 
     /* mobile v2 (啟揚38, 11/06): shorter page, one-row header, lower hero photo, bigger tap targets */
-    .wall-more { display: none; }
     @media (max-width: 1023px) {
       .site-header { display: flex; align-items: center; }
       .site-header .bar { width: auto; flex: none; margin: 0; padding-left: 1rem; min-height: 3.5rem; }
@@ -301,7 +300,6 @@
       .review-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .75rem; padding-bottom: .5rem; }
       .review { flex: 0 0 82%; scroll-snap-align: start; }
       .wall-grid img:nth-child(n+13) { display: none; }
-      .wall-more { display: inline-flex; margin-top: 1rem; }
       .more { display: inline-flex; align-items: center; min-height: 2.75rem; }
       .foot-grid { gap: 1.75rem; padding: 2.5rem 0; }
       .foot-grid > div:nth-child(2) { display: none; }
@@ -573,7 +571,6 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
           <img src="/images/works/qy-201.webp" alt="啟揚電梯案場 QY-201" loading="lazy" decoding="async" width="160" height="160" />
           <img src="/images/works/qy-177.webp" alt="啟揚電梯案場 QY-177" loading="lazy" decoding="async" width="160" height="160" />
         </div>
-        <a class="more wall-more" href="/cases">看全部案場 ›</a>
         <a class="btn btn-ghost" style="margin-top:1.75rem;" href="/cases">看工程現場</a>
       </div>
     </section>
