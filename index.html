@@ -319,7 +319,8 @@ gtag('js',new Date());gtag('config','AW-854591160');gtag('config','G-MY53ERRNRC'
 (function(){var FORM='AW-854591160/nziFCPHO0KcDELiNwJcD',PHONE='AW-854591160/a-zQCN6W4awdELiNwJcD',FR=/forms\.gle|docs\.google\.com\/forms/;
 document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var h=a.getAttribute('href')||'';
 if(h.indexOf('tel:')===0){gtag('event','conversion',{send_to:PHONE});gtag('event','phone_click',{link_url:h});}
-else if(FR.test(h)){gtag('event','conversion',{send_to:FORM});gtag('event','form_click',{link_url:h});}},true);
+else if(FR.test(h)){gtag('event','form_click',{link_url:h});}
+else if(/facebook\.com|instagram\.com/.test(h)){gtag('event','social_click',{link_url:h,link_text:(a.innerText||a.getAttribute('aria-label')||'').trim().slice(0,40)});}},true);
 document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.action||'')){gtag('event','conversion',{send_to:FORM});gtag('event','generate_lead');}},true);})();
 </script>
 </head>
@@ -338,7 +339,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
       </nav>
       <div class="bar-end">
         <a class="bar-tel" href="tel:+88673538504">07-353-8504</a>
-        <a class="btn btn-primary btn-sm" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
+        <a class="btn btn-primary btn-sm" href="/contact/#form">我家能不能裝</a>
       </div>
     </div>
     <nav class="mnav" aria-label="主要導覽">
@@ -366,7 +367,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
           <p class="lead-strong">空間窄、別家不接、地板不能大挖。</p>
           <p class="lead">先看這個家怎麼住，再談電梯怎麼放。</p>
           <div class="actions">
-            <a class="btn btn-primary" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a>
+            <a class="btn btn-primary" href="/contact/#form">我家能不能裝</a>
             <a class="btn btn-ghost" href="#cases">看現場照片</a>
           </div>
           <p class="call">來電<a href="tel:+88673538504">07-353-8504</a></p>
@@ -606,7 +607,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
         <h2 class="h2">想裝電梯，先問啟揚</h2>
         <p class="body-l">留下房屋類型和樓層，照片之後再傳。能不能裝，我們一起討論。</p>
         <p class="cta-phone"><a href="tel:+88673538504">07-353-8504</a></p>
-        <div class="actions"><a class="btn btn-white" href="https://forms.gle/VZDNnvj8x47tnzg26">我家能不能裝</a></div>
+        <div class="actions"><a class="btn btn-white" href="/contact/#form">我家能不能裝</a></div>
       </div>
     </section>
   </main>
@@ -649,7 +650,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
   <nav class="dock" aria-label="手機快捷">
     <a href="tel:+88673538504">打電話</a>
     <a href="#cases">看現場</a>
-    <a class="go" href="https://forms.gle/VZDNnvj8x47tnzg26">能不能裝</a>
+    <a class="go" href="/contact/#form">能不能裝</a>
   </nav>
 </body>
 </html>
