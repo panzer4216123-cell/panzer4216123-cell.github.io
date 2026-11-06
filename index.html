@@ -150,7 +150,7 @@
     .proof-item + .proof-item { border-top: 1px solid var(--line); }
     .proof-item .num-label { margin: 0; }
     @media (min-width: 768px) {
-      .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .proof-item { display: block; padding: 2.1rem 2rem 2rem; }
       .proof-item:first-child { padding-left: 0; }
       .proof-item + .proof-item { border-top: 0; border-left: 1px solid var(--line); }
@@ -179,6 +179,18 @@
     .m-note { max-width: 22rem; margin: 1.5rem 0 0; color: var(--on-night-soft); }
 
     /* customer voice */
+    .proof-link { color: inherit; text-decoration: none; }
+    .proof-link:hover .num-label { color: var(--blue); }
+    .num .stars { color: var(--ti); font-size: .45em; margin-left: .25em; letter-spacing: .08em; vertical-align: .15em; }
+    .reviews { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+    .reviews-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; margin-bottom: 1.25rem; }
+    .reviews-head h3 { margin: 0; font-family: var(--display); font-size: 1.375rem; letter-spacing: .04em; }
+    .review-grid { display: grid; gap: 1rem; }
+    @media (min-width: 900px) { .review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .review { margin: 0; background: var(--stone); border-left: 2px solid var(--ti); padding: 1.25rem 1.25rem 1.1rem; }
+    .review .r-stars { margin: 0 0 .5rem; color: var(--ti); letter-spacing: .12em; }
+    .review blockquote { margin: 0; line-height: 1.8; color: var(--fg); }
+    .review figcaption { margin-top: .75rem; color: var(--steel); font-size: .9375rem; }
     .voice { background: var(--white); }
     .voice-grid { display: grid; gap: 1.75rem; }
     @media (min-width: 900px) { .voice-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: center; gap: clamp(2.5rem, 5vw, 4.5rem); } }
@@ -338,6 +350,10 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
           <p class="num">4<small>處</small></p>
           <p class="num-label">高雄、台南、台中、桃園據點</p>
         </div>
+        <a class="proof-item proof-link" href="https://maps.google.com/?cid=1411551763965450426" target="_blank" rel="noopener noreferrer">
+          <p class="num">5.0<span class="stars" aria-hidden="true">★★★★★</span></p>
+          <p class="num-label">Google 評論 100+ 則・看全部 ›</p>
+        </a>
       </div>
     </section>
 
@@ -383,6 +399,29 @@ document.addEventListener('submit',function(e){var f=e.target;if(f&&FR.test(f.ac
             <a class="btn btn-ghost" href="https://www.facebook.com/reel/2047082872592579" target="_blank" rel="noopener noreferrer">在臉書看影片</a>
             <a class="more" href="/stories">更多訪談</a>
           </div>
+        </div>
+      </div>
+      <div class="shell reviews">
+        <div class="reviews-head">
+          <h3>Google 評論 5.0 星</h3>
+          <a class="more" href="https://maps.google.com/?cid=1411551763965450426" target="_blank" rel="noopener noreferrer">看全部 100+ 則評論</a>
+        </div>
+        <div class="review-grid">
+          <figure class="review">
+            <p class="r-stars" aria-label="5 顆星">★★★★★</p>
+            <blockquote>我們家的電梯都是給他們家弄的！服務態度超級好，人員也非常的親切，大力推薦給大家，我也介紹我的親朋好友。</blockquote>
+            <figcaption>劉○華・Google 評論</figcaption>
+          </figure>
+          <figure class="review">
+            <p class="r-stars" aria-label="5 顆星">★★★★★</p>
+            <blockquote>每個保養師傅態度都很客氣，優質廠商。這次來服務的許師傅真的很耐心解說，把電梯說明得淺顯易懂。</blockquote>
+            <figcaption>彭○于・Google 評論</figcaption>
+          </figure>
+          <figure class="review">
+            <p class="r-stars" aria-label="5 顆星">★★★★★</p>
+            <blockquote>規劃書寫得非常詳盡，預算透明，沒有任何隱藏費用。施工嚴格遵守安全規範，進度完全符合預期，驗收也非常仔細。</blockquote>
+            <figcaption>ShuPing H.・Google 評論</figcaption>
+          </figure>
         </div>
       </div>
     </section>
