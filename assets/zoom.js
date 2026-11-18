@@ -1,14 +1,17 @@
 /* 點圖放大：型錄、案例照片點一下全螢幕看，可再放大到 3 倍、拖動看細節（啟揚41，2026-11-06） */
 (function () {
-  var imgs = [].slice.call(document.querySelectorAll('main .crop img')).filter(function (im) {
-    return !im.closest('a');
+  // 11/18 啟揚113：原本只抓型錄的 .crop 圖，工程現場、首頁案例牆、關於我們、保養頁的照片點不開；改成主要內容裡所有照片（連結裡的除外）
+  var imgs = [].slice.call(document.querySelectorAll('main img')).filter(function (im) {
+    if (im.closest('a, button, header, footer')) return false;
+    var w = +im.getAttribute('width') || im.naturalWidth || 0;
+    return w === 0 || w >= 120;
   });
   if (!imgs.length) return;
 
   var css = document.createElement('style');
   css.textContent =
     '.zm-hint{display:inline-block;margin-top:.5rem;font-size:1rem;color:var(--color-fg-muted,#666)}' +
-    'main .crop img.zm-ok{cursor:zoom-in}' +
+    'main img.zm-ok{cursor:zoom-in}' +
     '.zm{position:fixed;inset:0;z-index:9999;background:#0a0a0a;display:none;flex-direction:column}' +
     '.zm.on{display:flex}' +
     '.zm-stage{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:center;justify-content:center}' +
@@ -78,6 +81,12 @@
     im.setAttribute('tabindex', '0');
     im.setAttribute('role', 'button');
     im.addEventListener('click', function () { open(im); });
+    // 案例卡片下方的文字條蓋在照片上，點文字條也要能放大
+    var card = im.closest('article');
+    if (card && card.querySelector('.cap') && card.querySelectorAll('img').length === 1) {
+      card.style.cursor = 'zoom-in';
+      card.addEventListener('click', function (e) { if (e.target !== im && !e.target.closest('a, button')) open(im); });
+    }
     im.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(im); } });
   });
 
